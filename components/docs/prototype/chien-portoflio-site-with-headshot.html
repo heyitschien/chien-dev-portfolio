@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chien Duong – Front-End Developer</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <script>
+        // Custom Tailwind configuration to extend theme
+        tailwind.config = {
+            darkMode: 'class', // Enable dark mode using a class
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary': {
+                            'light': '#4285F4', // Google Blue
+                            'dark': '#8ab4f8'
+                        },
+                        'background': {
+                            'light': '#f8f9fa', // Off-white
+                            'dark': '#202124'   // Google Dark Gray
+                        },
+                        'surface': {
+                            'light': '#ffffff',
+                            'dark': '#303134'
+                        },
+                        'on-surface': {
+                            'light': '#202124',
+                            'dark': '#e8eaed'
+                        },
+                        'on-surface-variant': {
+                             'light': '#5f6368',
+                             'dark': '#969ba1'
+                        }
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards'
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Basic styles for scroll animations */
+        .scroll-animate {
+            opacity: 0;
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            transform: translateY(20px);
+        }
+        .scroll-animate.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-on-surface-light dark:text-on-surface-dark font-sans antialiased transition-colors duration-300">
+
+    <!-- Header -->
+    <header id="header" class="sticky top-0 z-50 bg-surface-light/80 dark:bg-surface-dark/80 backdrop-blur-sm border-b border-gray-200 dark:border-gray-700 transition-colors duration-300">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold text-primary-light dark:text-primary-dark">CD</a>
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="#about" class="text-on-surface-variant-light dark:text-on-surface-variant-dark hover:text-primary-light dark:hover:text-primary-dark transition-colors">About</a>
+                <a href="#projects" class="text-on-surface-variant-light dark:text-on-surface-variant-dark hover:text-primary-light dark:hover:text-primary-dark transition-colors">Projects</a>
+                <a href="#skills" class="text-on-surface-variant-light dark:text-on-surface-variant-dark hover:text-primary-light dark:hover:text-primary-dark transition-colors">Skills</a>
+                <a href="#contact" class="text-on-surface-variant-light dark:text-on-surface-variant-dark hover:text-primary-light dark:hover:text-primary-dark transition-colors">Contact</a>
+            </div>
+            <div class="flex items-center">
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    <i class="fa-solid fa-moon text-on-surface-variant-light dark:hidden"></i>
+                    <i class="fa-solid fa-sun text-on-surface-variant-dark hidden dark:inline"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-6">
+
+        <!-- Hero Section -->
+        <section id="hero" class="min-h-[calc(100vh-80px)] flex flex-col justify-center items-center text-center py-20">
+            <!-- Headshot Image -->
+            <div class="animate-fade-in-up">
+                <img src="../public/assets/headshots/chien_head_shot.jpg" 
+                     alt="Chien Escalera Duong headshot" 
+                     class="w-40 h-40 rounded-full object-cover border-4 border-surface-light dark:border-gray-600 shadow-lg mx-auto mb-8">
+            </div>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-on-surface-light dark:text-on-surface-dark mb-4 animate-fade-in-up" style="animation-delay: 0.2s;">Chien Escalera Duong</h1>
+            <p class="text-xl md:text-2xl text-on-surface-variant-light dark:text-on-surface-variant-dark mb-8 animate-fade-in-up" style="animation-delay: 0.4s;">Front-End Developer | Real Projects, Real Impact</p>
+            <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 animate-fade-in-up" style="animation-delay: 0.6s;">
+                <a href="#projects" class="bg-primary-light hover:bg-blue-600 dark:bg-primary-dark dark:hover:bg-blue-300 dark:text-background-dark text-white font-bold py-3 px-8 rounded-full transition-transform transform hover:scale-105 shadow-lg">
+                    View My Work
+                </a>
+                <a href="#contact" class="bg-surface-light dark:bg-surface-dark border border-gray-300 dark:border-gray-600 text-on-surface-light dark:text-on-surface-dark font-bold py-3 px-8 rounded-full transition-transform transform hover:scale-105 shadow-lg">
+                    Contact Me
+                </a>
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about" class="py-24 scroll-animate">
+            <h2 class="text-4xl font-bold text-center mb-12">About Me</h2>
+            <div class="grid md:grid-cols-5 gap-12 items-center">
+                <div class="md:col-span-3">
+                    <h3 class="text-2xl font-semibold mb-4 text-primary-light dark:text-primary-dark">From Uber to UI: A Journey of Reinvention</h3>
+                    <p class="text-lg text-on-surface-variant-light dark:text-on-surface-variant-dark mb-4">
+                        My journey into tech wasn't traditional. Driving for Uber taught me discipline, resilience, and the importance of a user-centric mindset—skills I now apply to every line of code I write. I thrive on solving complex problems and transforming them into beautiful, intuitive, and impactful digital experiences.
+                    </p>
+                    <p class="text-lg text-on-surface-variant-light dark:text-on-surface-variant-dark">
+                        I am passionate about building accessible, responsive, and high-performance web applications. My goal is to collaborate with teams that push the boundaries of technology to create products that make a real difference.
+                    </p>
+                </div>
+                <div class="md:col-span-2 bg-surface-light dark:bg-surface-dark p-6 rounded-2xl shadow-md">
+                    <h4 class="text-xl font-semibold mb-4">Highlights</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-center"><i class="fa-solid fa-certificate text-primary-light dark:text-primary-dark w-6"></i><span class="ml-3">Meta Certified Front-End Developer</span></li>
+                        <li class="flex items-center"><i class="fa-solid fa-flask text-primary-light dark:text-primary-dark w-6"></i><span class="ml-3">Stanford University Collaboration</span></li>
+                        <li class="flex items-center"><i class="fa-solid fa-robot text-primary-light dark:text-primary-dark w-6"></i><span class="ml-3">AI Startup Development</span></li>
+                        <li class="flex items-center"><i class="fa-solid fa-microphone text-primary-light dark:text-primary-dark w-6"></i><span class="ml-3">Toastmasters Public Speaking</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-24 scroll-animate">
+            <h2 class="text-4xl font-bold text-center mb-12">Projects</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project Card 1 -->
+                <div class="bg-surface-light dark:bg-surface-dark rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-1">
+                    <img src="https://placehold.co/600x400/4285F4/FFFFFF?text=Stanford+RNA+Site" alt="Stanford RNA Department Website" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">🔬 Stanford RNA Department Website</h3>
+                        <p class="text-on-surface-variant-light dark:text-on-surface-variant-dark mb-4 text-sm">Developed a responsive front-end for a research department, improving information access for scientists.</p>
+                        <div class="mb-4 flex flex-wrap gap-2">
+                            <span class="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 text-xs font-semibold px-2.5 py-0.5 rounded-full">React</span>
+                            <span class="bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200 text-xs font-semibold px-2.5 py-0.5 rounded-full">Vite</span>
+                            <span class="bg-cyan-100 text-cyan-800 dark:bg-cyan-900 dark:text-cyan-200 text-xs font-semibold px-2.5 py-0.5 rounded-full">Tailwind</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="#" class="font-semibold text-primary-light dark:text-primary-dark hover:underline">Live Site <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
+                            <a href="#" class="font-semibold text-primary-light dark:text-primary-dark hover:underline">GitHub <i class="fa-brands fa-github text-xs"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project Card 2 -->
+                <div class="bg-surface-light dark:bg-surface-dark rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-1">
+                    <img src="https://placehold.co/600x400/34A853/FFFFFF?text=AI+Video+App" alt="AI Image-to-Video App" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">🤖 AI Image-to-Video App</h3>
+                        <p class="text-on-surface-variant-light dark:text-on-surface-variant-dark mb-4 text-sm">Built the UI for an innovative AI startup, enabling users to generate video clips from still images.</p>
+                        <div class="mb-4 flex flex-wrap gap-2">
+                            <span class="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 text-xs font-semibold px-2.5 py-0.5 rounded-full">React</span>
+                            <span class="bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200 text-xs font-semibold px-2.5 py-0.5 rounded-full">Node.js</span>
+                            <span class="bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200 text-xs font-semibold px-2.5 py-0.5 rounded-full">API</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="#" class="font-semibold text-primary-light dark:text-primary-dark hover:underline">Live Site <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
+                            <a href="#" class="font-semibold text-primary-light dark:text-primary-dark hover:underline">GitHub <i class="fa-brands fa-github text-xs"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project Card 3 -->
+                <div class="bg-surface-light dark:bg-surface-dark rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-1">
+                    <img src="https://placehold.co/600x400/FBBC05/FFFFFF?text=Template+Generator" alt="Personal Template Generator" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">💻 Personal Template Generator</h3>
+                        <p class="text-on-surface-variant-light dark:text-on-surface-variant-dark mb-4 text-sm">A personal project to showcase component-based architecture, allowing users to scaffold new web projects.</p>
+                        <div class="mb-4 flex flex-wrap gap-2">
+                            <span class="bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200 text-xs font-semibold px-2.5 py-0.5 rounded-full">JavaScript</span>
+                            <span class="bg-cyan-100 text-cyan-800 dark:bg-cyan-900 dark:text-cyan-200 text-xs font-semibold px-2.5 py-0.5 rounded-full">Tailwind</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="#" class="font-semibold text-primary-light dark:text-primary-dark hover:underline">Live Site <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
+                            <a href="#" class="font-semibold text-primary-light dark:text-primary-dark hover:underline">GitHub <i class="fa-brands fa-github text-xs"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-24 scroll-animate">
+            <h2 class="text-4xl font-bold text-center mb-12">Skills</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="skill-item">
+                    <i class="fab fa-react text-5xl text-primary-light dark:text-primary-dark mb-2"></i>
+                    <p>React</p>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-js-square text-5xl text-primary-light dark:text-primary-dark mb-2"></i>
+                    <p>JavaScript (ES6+)</p>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-html5 text-5xl text-primary-light dark:text-primary-dark mb-2"></i>
+                    <p>HTML5</p>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-css3-alt text-5xl text-primary-light dark:text-primary-dark mb-2"></i>
+                    <p>CSS3</p>
+                </div>
+                 <div class="skill-item">
+                    <i class="fas fa-wind text-5xl text-primary-light dark:text-primary-dark mb-2"></i>
+                    <p>Tailwind CSS</p>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-git-alt text-5xl text-primary-light dark:text-primary-dark mb-2"></i>
+                    <p>Git</p>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-bolt text-5xl text-primary-light dark:text-primary-dark mb-2"></i>
+                    <p>Vite</p>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-users text-5xl text-primary-light dark:text-primary-dark mb-2"></i>
+                    <p>Communication</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="py-24 scroll-animate">
+            <h2 class="text-4xl font-bold text-center mb-12">Testimonials</h2>
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="bg-surface-light dark:bg-surface-dark p-8 rounded-2xl shadow-md">
+                    <i class="fa-solid fa-quote-left text-3xl text-primary-light dark:text-primary-dark mb-4"></i>
+                    <p class="text-on-surface-variant-light dark:text-on-surface-variant-dark italic mb-4">"Chien was instrumental in bringing our vision to life. His front-end skills and proactive communication made him a vital part of our team."</p>
+                    <div class="font-semibold">Amazon Startup Founder</div>
+                    <div class="text-sm text-on-surface-variant-light dark:text-on-surface-variant-dark">AI Image-to-Video Startup</div>
+                </div>
+                <div class="bg-surface-light dark:bg-surface-dark p-8 rounded-2xl shadow-md">
+                    <i class="fa-solid fa-quote-left text-3xl text-primary-light dark:text-primary-dark mb-4"></i>
+                    <p class="text-on-surface-variant-light dark:text-on-surface-variant-dark italic mb-4">"The new website Chien developed has received fantastic feedback. It's clean, professional, and exactly what our department needed."</p>
+                    <div class="font-semibold">Stanford Contact</div>
+                    <div class="text-sm text-on-surface-variant-light dark:text-on-surface-variant-dark">Stanford RNA Department</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-24 text-center scroll-animate">
+            <h2 class="text-4xl font-bold mb-4">Let's Build Something Great.</h2>
+            <p class="text-lg text-on-surface-variant-light dark:text-on-surface-variant-dark max-w-2xl mx-auto mb-8">I'm currently available for freelance projects and full-time opportunities. Feel free to reach out or schedule a chat.</p>
+            <div class="flex justify-center items-center space-x-6 mb-8">
+                <a href="mailto:your.email@example.com" class="text-4xl text-on-surface-variant-light dark:text-on-surface-variant-dark hover:text-primary-light dark:hover:text-primary-dark transition-transform transform hover:scale-110"><i class="fa-solid fa-envelope"></i></a>
+                <a href="#" target="_blank" class="text-4xl text-on-surface-variant-light dark:text-on-surface-variant-dark hover:text-primary-light dark:hover:text-primary-dark transition-transform transform hover:scale-110"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#" target="_blank" class="text-4xl text-on-surface-variant-light dark:text-on-surface-variant-dark hover:text-primary-light dark:hover:text-primary-dark transition-transform transform hover:scale-110"><i class="fa-brands fa-github"></i></a>
+            </div>
+             <a href="#" class="bg-primary-light hover:bg-blue-600 dark:bg-primary-dark dark:hover:bg-blue-300 dark:text-background-dark text-white font-bold py-3 px-8 rounded-full transition-transform transform hover:scale-105 shadow-lg inline-block">
+                Schedule a Chat (Calendly)
+            </a>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-200 dark:border-gray-700">
+        <div class="container mx-auto px-6 py-6 text-center text-on-surface-variant-light dark:text-on-surface-variant-dark">
+            <p>&copy; 2025 Chien Duong | Designed & Built with ❤️</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Theme Toggler ---
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const htmlEl = document.documentElement;
+
+            // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+            if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                htmlEl.classList.add('dark');
+            } else {
+                htmlEl.classList.remove('dark');
+            }
+
+            themeToggleBtn.addEventListener('click', () => {
+                if (htmlEl.classList.contains('dark')) {
+                    htmlEl.classList.remove('dark');
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    htmlEl.classList.add('dark');
+                    localStorage.setItem('theme', 'dark');
+                }
+            });
+
+            // --- Smooth Scrolling for Nav Links ---
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    // Don't prevent default for links that are just "#"
+                    if(this.getAttribute('href') === '#') return;
+                    
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                         targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // --- Scroll Animations with Intersection Observer ---
+            const animatedElements = document.querySelectorAll('.scroll-animate');
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        // Optional: unobserve after animation to save resources
+                        // observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                rootMargin: '0px',
+                threshold: 0.1 // Triggers when 10% of the element is visible
+            });
+
+            animatedElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
