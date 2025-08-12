@@ -6,7 +6,18 @@ import Section from './Section';
 
 const ProjectCard: React.FC<{ project: Project }> = ({ project }) => (
     <div className="bg-surface-light dark:bg-surface-dark rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-1 flex flex-col">
-        <img src={project.imageUrl} alt={project.title} className="w-full h-48 object-cover" />
+        <picture>
+            {project.imageWebp && (
+                <source type="image/webp" srcSet={project.imageWebp} />
+            )}
+            <img
+                src={project.imageJpg || project.imageUrl}
+                alt={project.title}
+                className="w-full h-48 object-cover"
+                loading="lazy"
+                decoding="async"
+            />
+        </picture>
         <div className="p-6 flex flex-col flex-grow">
             <h3 className="text-xl font-bold mb-2">{project.title}</h3>
             <p className="text-on-surface-variant-light dark:text-on-surface-variant-dark mb-4 text-sm flex-grow">{project.description}</p>

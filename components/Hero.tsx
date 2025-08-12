@@ -10,9 +10,16 @@ const Hero: React.FC = () => {
     return (
         <section id="hero" className="min-h-[calc(100vh-80px)] flex flex-col justify-center items-center text-center py-20">
             <div className="animate-fade-in-up">
-                <img src="public/assets/headshots/chien_head_shot.jpg" 
-                     alt="Chien Escalera Duong headshot" 
-                     className="w-40 h-40 rounded-full object-cover border-4 border-surface-light dark:border-gray-600 shadow-lg mx-auto mb-8"/>
+                <picture>
+                    <source type="image/webp" srcSet="/assets/headshots/chien_head_shot.webp" />
+                    <img
+                        src="/assets/headshots/chien_head_shot.jpg"
+                        alt="Chien Escalera Duong headshot"
+                        className="w-40 h-40 rounded-full object-cover border-4 border-surface-light dark:border-gray-600 shadow-lg mx-auto mb-8"
+                        loading="eager"
+                        decoding="async"
+                    />
+                </picture>
             </div>
             <h1 className="text-5xl md:text-7xl font-extrabold text-on-surface-light dark:text-on-surface-dark mb-4 animate-fade-in-up" style={{animationDelay: '0.2s'}}>Chien Escalera Duong</h1>
             <p className="text-xl md:text-2xl text-on-surface-variant-light dark:text-on-surface-variant-dark mb-8 animate-fade-in-up" style={{animationDelay: '0.4s'}}>Front-End Developer | Real Projects, Real Impact</p>
