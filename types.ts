@@ -10,6 +10,10 @@ export interface Project {
   imageJpg?: string;
   liveUrl: string;
   githubUrl: string;
+  // Optional: list of tooling/technologies to show as compact badges
+  tooling?: string[];
+  // Optional: one-liner highlighting your role and impact
+  roleImpact?: string;
 }
 
 export interface Skill {
