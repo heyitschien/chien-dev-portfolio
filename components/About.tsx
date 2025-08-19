@@ -5,24 +5,27 @@ import Section from './Section';
 const About: React.FC = () => {
     return (
         <Section id="about">
-            <h2 className="text-4xl font-bold text-center mb-12">About Me</h2>
-            <div className="grid md:grid-cols-5 gap-12 items-center">
+            <h2 className="text-4xl font-bold text-center mb-12">From Set Pieces to Ship Dates</h2>
+            <div className="grid md:grid-cols-5 gap-12 items-start">
                 <div className="md:col-span-3">
-                    <h3 className="text-2xl font-semibold mb-4 text-primary-light dark:text-primary-dark">From Uber to UI: A Journey of Reinvention</h3>
+                    <h3 className="text-2xl font-semibold mb-4 text-primary-light dark:text-primary-dark">High-stakes mindset, applied to product.</h3>
                     <p className="text-lg text-on-surface-variant-light dark:text-on-surface-variant-dark mb-4">
-                        My journey into tech wasn't traditional. Driving for Uber taught me discipline, resilience, and the importance of a user-centric mindset—skills I now apply to every line of code I write. I thrive on solving complex problems and transforming them into beautiful, intuitive, and impactful digital experiences.
+                        I learned pressure, timing, and teamwork from the film set—where choreography, safety, and split-second decisions matter. I bring that same discipline to front-end engineering: clear plans, fast iteration, and predictable delivery.
+                    </p>
+                    <p className="text-lg text-on-surface-variant-light dark:text-on-surface-variant-dark mb-4">
+                        Today, I design and ship accessible, performant interfaces and increasingly leverage AI/agentic workflows to move from idea to impact faster—without sacrificing quality.
                     </p>
                     <p className="text-lg text-on-surface-variant-light dark:text-on-surface-variant-dark">
-                        I am passionate about building accessible, responsive, and high-performance web applications. My goal is to collaborate with teams that push the boundaries of technology to create products that make a real difference.
+                        Whether it’s a growth site, an internal tool, or a product UI, I focus on outcomes: reducing friction, clarifying decisions, and shipping work that earns trust.
                     </p>
                 </div>
                 <div className="md:col-span-2 bg-surface-light dark:bg-surface-dark p-6 rounded-2xl shadow-md">
-                    <h4 className="text-xl font-semibold mb-4">Highlights</h4>
-                    <ul className="space-y-4">
-                        <li className="flex items-center"><i className="fa-solid fa-certificate text-primary-light dark:text-primary-dark w-6"></i><span className="ml-3">Meta Certified Front-End Developer</span></li>
-                        <li className="flex items-center"><i className="fa-solid fa-flask text-primary-light dark:text-primary-dark w-6"></i><span className="ml-3">Stanford University Collaboration</span></li>
-                        <li className="flex items-center"><i className="fa-solid fa-robot text-primary-light dark:text-primary-dark w-6"></i><span className="ml-3">AI Startup Development</span></li>
-                        <li className="flex items-center"><i className="fa-solid fa-microphone text-primary-light dark:text-primary-dark w-6"></i><span className="ml-3">Toastmasters Public Speaking</span></li>
+                    <h4 className="text-xl font-semibold mb-4">Career Highlights</h4>
+                    <ul className="space-y-3 text-on-surface-variant-light dark:text-on-surface-variant-dark">
+                        <li className="flex items-start"><i className="fa-solid fa-certificate text-primary-light dark:text-primary-dark w-6 mt-1"></i><span className="ml-3">Meta Certified Front-End Developer</span></li>
+                        <li className="flex items-start"><i className="fa-solid fa-building-columns text-primary-light dark:text-primary-dark w-6 mt-1"></i><span className="ml-3">Built UX prototypes with Stanford collaborators</span></li>
+                        <li className="flex items-start"><i className="fa-solid fa-robot text-primary-light dark:text-primary-dark w-6 mt-1"></i><span className="ml-3">Shipped AI-powered workflows at early-stage startups</span></li>
+                        <li className="flex items-start"><i className="fa-solid fa-clapperboard text-primary-light dark:text-primary-dark w-6 mt-1"></i><span className="ml-3">Film/stunt background informs systems thinking and reliability</span></li>
                     </ul>
                 </div>
             </div>

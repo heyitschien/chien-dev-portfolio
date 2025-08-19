@@ -41,7 +41,7 @@ const App: React.FC = () => {
     return (
         <>
             <Header theme={theme} toggleTheme={toggleTheme} />
-            <main className="container mx-auto px-6">
+            <main id="main" className="container mx-auto px-6">
                 <Hero />
                 <About />
                 <Projects />

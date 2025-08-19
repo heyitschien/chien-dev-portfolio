@@ -1,24 +1,31 @@
-
+ 
 export interface Project {
+  id: string;
   title: string;
-  description: string;
-  tags: { name: string; colorClass: string }[];
-  // Legacy single URL (kept for backward compatibility)
-  imageUrl: string;
-  // Preferred explicit sources for better format fallback
-  imageWebp?: string;
-  imageJpg?: string;
-  liveUrl: string;
-  githubUrl: string;
-  // Optional: list of tooling/technologies to show as compact badges
-  tooling?: string[];
-  // Optional: one-liner highlighting your role and impact
-  roleImpact?: string;
+  role: string;
+  org?: string;            // e.g., Stanford, Startup, etc.
+  timeframe?: string;      // e.g., 2024–2025
+  summary: string;         // 1–2 sentence overview
+  problem?: string;
+  solution?: string;
+  impact?: string[];       // bullets with metrics
+  stack: string[];         // ["React","TS","Tailwind","Playwright"]
+  aiInvolvement?: string[];// e.g. ["Cursor pair-prog","LLM test scaffolding"]
+  links?: { live?: string; repo?: string; caseStudy?: string };
+  images?: { src: string; alt: string }[];
+  tags?: string[];
+  featured?: boolean;
+  order?: number;
 }
 
 export interface Skill {
   name: string;
   iconClass: string;
+}
+
+export interface SkillCategory {
+  title: string;
+  skills: Skill[];
 }
 
 export interface Testimonial {
