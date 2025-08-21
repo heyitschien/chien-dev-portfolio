@@ -15,7 +15,7 @@ const StackBadge: React.FC<{ label: string }> = ({ label }) => (
 
 const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
     const img = project.images && project.images[0];
-    const impact = project.impact?.slice(0, 2) ?? [];
+    const impact = project.impact?.slice(0, 3) ?? [];
     return (
         <div className="bg-surface-light dark:bg-surface-dark rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-1 flex flex-col">
             {img && (
@@ -36,22 +36,39 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
             <div className="p-6 flex flex-col flex-grow">
                 <div className="text-sm text-on-surface-variant-light dark:text-on-surface-variant-dark mb-1">{project.role}{project.org ? ` • ${project.org}` : ''}</div>
                 <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                <p className="text-on-surface-variant-light dark:text-on-surface-variant-dark mb-4 text-sm">{project.summary}</p>
-                {impact.length > 0 && (
-                    <ul className="list-disc list-inside text-sm text-on-surface-variant-light dark:text-on-surface-variant-dark mb-4 space-y-1">
-                        {impact.map((pt: string, idx: number) => (
-                            <li key={idx}>{pt}</li>
-                        ))}
-                    </ul>
-                )}
-                {project.stack?.length > 0 && (
-                    <div className="mb-3 flex flex-wrap gap-2">
-                        {project.stack.map((item: string) => (
-                            <StackBadge key={item} label={item} />)
-                        )}
+                {project.problem && (
+                    <div className="mb-3">
+                        <div className="text-[11px] font-semibold uppercase tracking-wide text-on-surface-variant-light dark:text-on-surface-variant-dark">Problem</div>
+                        <p className="text-sm text-on-surface-variant-light dark:text-on-surface-variant-dark">{project.problem}</p>
                     </div>
                 )}
-                <div className="flex items-center space-x-4 mt-auto">
+                {(project.solution || project.summary) && (
+                    <div className="mb-3">
+                        <div className="text-[11px] font-semibold uppercase tracking-wide text-on-surface-variant-light dark:text-on-surface-variant-dark">What I built</div>
+                        <p className="text-sm text-on-surface-variant-light dark:text-on-surface-variant-dark">{project.solution ?? project.summary}</p>
+                    </div>
+                )}
+                {impact.length > 0 && (
+                    <div className="mb-3">
+                        <div className="text-[11px] font-semibold uppercase tracking-wide text-on-surface-variant-light dark:text-on-surface-variant-dark">Impact / metrics</div>
+                        <ul className="list-disc list-inside text-sm text-on-surface-variant-light dark:text-on-surface-variant-dark space-y-1">
+                            {impact.map((pt: string, idx: number) => (
+                                <li key={idx}>{pt}</li>
+                            ))}
+                        </ul>
+                    </div>
+                )}
+                {project.stack?.length > 0 && (
+                    <div className="mb-4">
+                        <div className="text-[11px] font-semibold uppercase tracking-wide text-on-surface-variant-light dark:text-on-surface-variant-dark mb-1">Stack</div>
+                        <div className="flex flex-wrap gap-2">
+                            {project.stack.map((item: string) => (
+                                <StackBadge key={item} label={item} />)
+                            )}
+                        </div>
+                    </div>
+                )}
+                <div className="flex items-center space-x-4 mt-auto pt-2">
                     {project.links?.live && (
                         <a href={project.links.live} target="_blank" rel="noopener noreferrer" className="font-semibold text-primary-light dark:text-primary-dark hover:underline">Live <i className="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
                     )}

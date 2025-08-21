@@ -14,7 +14,7 @@ export const PROJECTS: Project[] = [
     impact: ['Improved time-to-content (est.)', 'Lighthouse SEO from 9X→9Y'],
     stack: ['React', 'Tailwind', 'Wix', 'Figma', 'Vercel Analytics'],
     aiInvolvement: ['Gemini/GPT-assisted UX flows'],
-    links: { live: 'https://www.stanfordrnamedicine.com/' },
+    links: { live: 'https://www.stanfordrnamedicine.com/', caseStudy: '#/case/stanford-rna' },
     images: [
       { src: '/projects/stanford.webp', alt: 'Stanford RNA Medicine website preview' },
       { src: '/projects/stanford.jpg', alt: 'Stanford RNA Medicine website preview (jpg)' },
@@ -35,7 +35,7 @@ export const PROJECTS: Project[] = [
     impact: ['LCP < 2.0s on hero', 'Preview errors ↓; conversion ↑ (add real metrics)'],
     stack: ['React Router', 'Tailwind v4', 'PostCSS', 'Autoprefixer', 'Sharp', 'Playwright', 'Vercel'],
     aiInvolvement: ['Gemini/GPT via Google AI Studio for integrations'],
-    links: { live: 'https://www.relive.photo/', repo: 'https://github.com/joiscoding/relive' },
+    links: { live: 'https://www.relive.photo/', repo: 'https://github.com/joiscoding/relive', caseStudy: '#/case/relive' },
     images: [
       { src: '/projects/relive.webp', alt: 'Relive app preview' },
       { src: '/projects/relive.jpg', alt: 'Relive app preview (jpg)' },
@@ -56,7 +56,7 @@ export const PROJECTS: Project[] = [
     impact: ['A11y score 100', 'E2E/tests passing; CI green'],
     stack: ['React', 'Yup', 'Vitest', 'Testing Library', 'axe', 'ESLint', 'Prettier'],
     aiInvolvement: ['AI chatbot via Google AI Studio (Gemini/GPT)'],
-    links: { live: 'https://little-lemon-kappa.vercel.app/', repo: 'https://github.com/heyitschien/little-lemon' },
+    links: { live: 'https://little-lemon-kappa.vercel.app/', repo: 'https://github.com/heyitschien/little-lemon', caseStudy: '#/case/little-lemon' },
     images: [
       { src: '/projects/little-lemon.webp', alt: 'Little Lemon app preview' },
       { src: '/projects/little-lemon.jpg', alt: 'Little Lemon app preview (jpg)' },

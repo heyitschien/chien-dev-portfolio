@@ -8,11 +8,13 @@ import Skills from './components/Skills';
 import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import CaseStudyPage from './components/CaseStudyPage';
 
 type Theme = 'light' | 'dark';
 
 const App: React.FC = () => {
     const [theme, setTheme] = useState<Theme>('light');
+    const [hash, setHash] = useState<string>(() => window.location.hash);
 
     useEffect(() => {
         const storedTheme = localStorage.getItem('theme');
@@ -22,6 +24,13 @@ const App: React.FC = () => {
         } else {
             setTheme('light');
         }
+    }, []);
+
+    // Simple hash router
+    useEffect(() => {
+        const onHashChange = () => setHash(window.location.hash);
+        window.addEventListener('hashchange', onHashChange);
+        return () => window.removeEventListener('hashchange', onHashChange);
     }, []);
 
     useEffect(() => {
@@ -38,16 +47,25 @@ const App: React.FC = () => {
         setTheme(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'));
     };
 
+    // Route parsing: #/case/:id
+    const caseMatch = hash.match(/^#\/case\/(.+)$/);
+
     return (
         <>
             <Header theme={theme} toggleTheme={toggleTheme} />
             <main id="main" className="container mx-auto px-6">
-                <Hero />
-                <About />
-                <Projects />
-                <Skills />
-                <Testimonials />
-                <Contact />
+                {caseMatch ? (
+                    <CaseStudyPage projectId={caseMatch[1]} />
+                ) : (
+                    <>
+                        <Hero />
+                        <About />
+                        <Projects />
+                        <Skills />
+                        <Testimonials />
+                        <Contact />
+                    </>
+                )}
             </main>
             <Footer />
         </>
