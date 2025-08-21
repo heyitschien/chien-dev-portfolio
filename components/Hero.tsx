@@ -37,19 +37,21 @@ const Hero: React.FC = () => {
                 </div>
             </div>
             <div className="mt-10 opacity-90" aria-label="Trusted by">
-                <ul className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm text-on-surface-variant-light dark:text-on-surface-variant-dark">
+                <ul className="flex items-center justify-center gap-x-8 overflow-x-auto px-2 sm:px-0 whitespace-nowrap flex-nowrap">
                     {[
-                        'Avatar: The Way of Water',
-                        'Disney',
-                        'Warner Bros',
-                        'Stanford',
-                    ].map((name) => (
-                        <li key={name} className="flex items-center gap-2">
-                            {/* Placeholder logo */}
-                            <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" className="opacity-70 fill-current text-on-surface-variant-light dark:text-on-surface-variant-dark">
-                                <circle cx="8" cy="8" r="7" stroke="currentColor" fill="none" />
-                            </svg>
-                            <span>{name}</span>
+                        { src: '/assets/logos/avatar.png', alt: 'Avatar: The Way of Water' },
+                        { src: '/assets/logos/disney-1.png', alt: 'Disney' },
+                        { src: '/assets/logos/warner.png', alt: 'Warner Bros' },
+                        { src: '/assets/logos/stanford.png', alt: 'Stanford' },
+                    ].map((brand) => (
+                        <li key={brand.alt} className="flex items-center justify-center shrink-0">
+                            <img
+                                src={brand.src}
+                                alt={brand.alt}
+                                className="h-7 sm:h-8 md:h-9 w-auto object-contain grayscale opacity-80 hover:opacity-100 transition-opacity"
+                                loading="lazy"
+                                decoding="async"
+                            />
                         </li>
                     ))}
                 </ul>
