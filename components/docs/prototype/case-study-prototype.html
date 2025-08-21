@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Case Study — Relive: AI Image-to-Video App</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* reading progress */
+    #progress { position: fixed; top: 0; left: 0; height: 4px; width: 0; background: #2563eb; z-index: 50; }
+    /* thin custom scrollbar (webkit) */
+    ::-webkit-scrollbar { width: 10px; height: 10px; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 999px; }
+    .shadow-soft { box-shadow: 0 8px 30px rgba(0,0,0,.06); }
+    .card { background: white; border: 1px solid #e5e7eb; border-radius: 14px; }
+    .kbd { border:1px solid #e5e7eb; border-bottom-width:2px; padding:.1rem .4rem; border-radius:.375rem; font-size:.8rem; background:#f8fafc;}
+    .anchor { opacity:0; transition:opacity .2s; margin-left:.25rem; }
+    h2:hover .anchor, h3:hover .anchor { opacity:1; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+  <div id="progress"></div>
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 bg-white border rounded px-3 py-1">Skip to content</a>
+
+  <!-- Header -->
+  <header class="sticky top-0 backdrop-blur bg-white/75 border-b z-40">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="#" class="font-semibold">CD</a>
+      <nav class="hidden md:flex gap-6 text-sm">
+        <a href="#overview" class="hover:text-blue-600">Overview</a>
+        <a href="#process" class="hover:text-blue-600">Process</a>
+        <a href="#results" class="hover:text-blue-600">Results</a>
+        <a href="#gallery" class="hover:text-blue-600">Gallery</a>
+      </nav>
+      <div class="flex items-center gap-2">
+        <a href="#" class="text-sm px-3 py-1.5 rounded-full border hover:bg-slate-100">Back to Portfolio</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="bg-white border-b">
+    <div class="max-w-7xl mx-auto px-4 py-14">
+      <div class="grid lg:grid-cols-3 gap-10">
+        <div class="lg:col-span-2">
+          <p class="text-blue-600 font-semibold uppercase tracking-wide text-xs">Case Study</p>
+          <h1 class="text-4xl md:text-5xl font-extrabold mt-2">Relive — AI Image‑to‑Video App</h1>
+          <p class="mt-4 text-lg text-slate-600">Lead front‑end engineer. Built the design system, router‑based navigation, media preview pipeline, analytics, and E2E tests. AI‑accelerated workflow throughout.</p>
+          <div class="mt-6 flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 text-xs rounded-full bg-blue-50 text-blue-700 border border-blue-100">React</span>
+            <span class="px-2.5 py-1 text-xs rounded-full bg-emerald-50 text-emerald-700 border border-emerald-100">TypeScript</span>
+            <span class="px-2.5 py-1 text-xs rounded-full bg-slate-50 text-slate-700 border">Tailwind</span>
+            <span class="px-2.5 py-1 text-xs rounded-full bg-slate-50 text-slate-700 border">Playwright</span>
+            <span class="px-2.5 py-1 text-xs rounded-full bg-slate-50 text-slate-700 border">Vercel</span>
+          </div>
+        </div>
+        <aside class="card p-5 shadow-soft self-start">
+          <dl class="text-sm">
+            <div class="flex justify-between py-2 border-b">
+              <dt class="text-slate-500">Role</dt>
+              <dd class="font-medium">Lead Front‑End</dd>
+            </div>
+            <div class="flex justify-between py-2 border-b">
+              <dt class="text-slate-500">Timeline</dt>
+              <dd class="font-medium">2024–2025</dd>
+            </div>
+            <div class="flex justify-between py-2 border-b">
+              <dt class="text-slate-500">Org</dt>
+              <dd class="font-medium">AI Image‑to‑Video Startup</dd>
+            </div>
+            <div class="py-3 space-y-2">
+              <a href="#" class="inline-flex items-center gap-2 px-3 py-2 rounded-lg border hover:bg-slate-50">
+                <span>Live site</span> <span aria-hidden>→</span>
+              </a>
+              <a href="#" class="inline-flex items-center gap-2 px-3 py-2 rounded-lg border hover:bg-slate-50">
+                <span>GitHub</span> <span aria-hidden>↗</span>
+              </a>
+              <a href="#" class="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700">
+                <span>Book 15‑min Call</span>
+              </a>
+            </div>
+          </dl>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Layout -->
+  <main id="main" class="max-w-7xl mx-auto px-4 py-12 grid lg:grid-cols-[240px_minmax(0,1fr)] gap-8">
+    <!-- TOC -->
+    <nav class="hidden lg:block sticky top-24 self-start">
+      <div class="card p-4 shadow-soft">
+        <p class="text-xs uppercase tracking-wide text-slate-500 mb-3">On this page</p>
+        <ol id="toc" class="space-y-2 text-sm">
+          <li><a class="toc-link text-slate-700 hover:text-blue-600" href="#overview">Overview</a></li>
+          <li><a class="toc-link text-slate-700 hover:text-blue-600" href="#goals">Goals</a></li>
+          <li><a class="toc-link text-slate-700 hover:text-blue-600" href="#solution">Solution</a></li>
+          <li><a class="toc-link text-slate-700 hover:text-blue-600" href="#metrics">Impact & Metrics</a></li>
+          <li><a class="toc-link text-slate-700 hover:text-blue-600" href="#process">Process</a></li>
+          <li><a class="toc-link text-slate-700 hover:text-blue-600" href="#architecture">Architecture</a></li>
+          <li><a class="toc-link text-slate-700 hover:text-blue-600" href="#testing">Testing & Perf</a></li>
+          <li><a class="toc-link text-slate-700 hover:text-blue-600" href="#lessons">Challenges & Lessons</a></li>
+          <li><a class="toc-link text-slate-700 hover:text-blue-600" href="#results">Results</a></li>
+          <li><a class="toc-link text-slate-700 hover:text-blue-600" href="#gallery">Gallery</a></li>
+        </ol>
+      </div>
+    </nav>
+
+    <!-- Content -->
+    <article class="space-y-10">
+      <!-- Overview -->
+      <section id="overview" class="card p-6 shadow-soft">
+        <h2 class="text-2xl font-bold">Overview <a class="anchor text-blue-600" href="#overview">#</a></h2>
+        <p class="mt-3 text-slate-700">Relive transforms personal images into short, cinematic video clips. As lead front‑end engineer I owned the UI architecture, preview interactions, media pipeline integration, and the analytics + testing setup. We shipped quickly by pairing an AI‑accelerated workflow with strong guardrails.</p>
+      </section>
+
+      <!-- Goals -->
+      <section id="goals" class="card p-6 shadow-soft">
+        <h2 class="text-2xl font-bold">Goals <a class="anchor text-blue-600" href="#goals">#</a></h2>
+        <ul class="mt-4 list-disc pl-6 text-slate-700 space-y-2">
+          <li>Deliver a polished marketing/creation flow with **preview on hover** and instant feedback.</li>
+          <li>Keep **LCP &lt; 2.0s** on the hero and ensure smooth scroll/route transitions.</li>
+          <li>Stand up **analytics** and **E2E coverage** for reliable iteration.</li>
+        </ul>
+      </section>
+
+      <!-- Solution -->
+      <section id="solution" class="card p-6 shadow-soft">
+        <h2 class="text-2xl font-bold">Solution <a class="anchor text-blue-600" href="#solution">#</a></h2>
+        <div class="grid md:grid-cols-2 gap-6 mt-4">
+          <div>
+            <h3 class="font-semibold">Key Decisions</h3>
+            <ul class="mt-2 list-disc pl-6 text-slate-700 space-y-2">
+              <li>Router‑based layout with guarded routes and optimistic UI for upload/preview.</li>
+              <li>Sharp‑powered image pipeline with poster/LQIP strategy for stable media.</li>
+              <li>AI‑assisted scaffolds in Cursor/Windsurf, reviewed & refined by hand.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold">Stack</h3>
+            <p class="mt-2 text-slate-700">React, TypeScript, Tailwind v4, React Router, PostCSS/Autoprefixer, Sharp, Playwright, Vitest, Vercel Analytics.</p>
+            <div class="mt-4 h-36 rounded-lg bg-slate-100 grid place-items-center text-slate-500 text-sm">Architecture diagram placeholder</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Metrics -->
+      <section id="metrics" class="card p-6 shadow-soft">
+        <h2 class="text-2xl font-bold">Impact &amp; Metrics <a class="anchor text-blue-600" href="#metrics">#</a></h2>
+        <ul class="mt-4 grid md:grid-cols-3 gap-4">
+          <li class="p-4 rounded-lg border bg-slate-50">
+            <div class="text-3xl font-extrabold">1.9s</div>
+            <div class="text-slate-600 text-sm">LCP on hero (median)</div>
+          </li>
+          <li class="p-4 rounded-lg border bg-slate-50">
+            <div class="text-3xl font-extrabold">100</div>
+            <div class="text-slate-600 text-sm">a11y score (Lighthouse)</div>
+          </li>
+          <li class="p-4 rounded-lg border bg-slate-50">
+            <div class="text-3xl font-extrabold">↑</div>
+            <div class="text-slate-600 text-sm">Preview errors reduced; conversion up (insert exact %)</div>
+          </li>
+        </ul>
+        <p class="text-xs text-slate-500 mt-2">(*Replace with your real numbers when available.)</p>
+      </section>
+
+      <!-- Process -->
+      <section id="process" class="card p-6 shadow-soft">
+        <h2 class="text-2xl font-bold">Process <a class="anchor text-blue-600" href="#process">#</a></h2>
+        <div class="grid md:grid-cols-3 gap-4 mt-4">
+          <div class="p-4 border rounded-lg">
+            <div class="text-xs font-semibold text-slate-500 uppercase">Step 1</div>
+            <h3 class="font-semibold">Plan</h3>
+            <p class="text-slate-700 text-sm mt-2">Requirements → user stories → wireframes (AI draft + human edit).</p>
+          </div>
+          <div class="p-4 border rounded-lg">
+            <div class="text-xs font-semibold text-slate-500 uppercase">Step 2</div>
+            <h3 class="font-semibold">Build</h3>
+            <p class="text-slate-700 text-sm mt-2">Cursor/Windsurf pair‑programming with guardrails; component library & routing.</p>
+          </div>
+          <div class="p-4 border rounded-lg">
+            <div class="text-xs font-semibold text-slate-500 uppercase">Step 3</div>
+            <h3 class="font-semibold">Verify</h3>
+            <p class="text-slate-700 text-sm mt-2">Playwright baselines, Vitest unit coverage, a11y checks (axe).</p>
+          </div>
+          <div class="p-4 border rounded-lg">
+            <div class="text-xs font-semibold text-slate-500 uppercase">Step 4</div>
+            <h3 class="font-semibold">Polish</h3>
+            <p class="text-slate-700 text-sm mt-2">Perf budget, LCP/CLS targets, bundle analysis.</p>
+          </div>
+          <div class="p-4 border rounded-lg">
+            <div class="text-xs font-semibold text-slate-500 uppercase">Step 5</div>
+            <h3 class="font-semibold">Ship</h3>
+            <p class="text-slate-700 text-sm mt-2">Vercel previews, analytics dashboards, post‑ship checklist.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Architecture -->
+      <section id="architecture" class="card p-6 shadow-soft">
+        <h2 class="text-2xl font-bold">Architecture Notes <a class="anchor text-blue-600" href="#architecture">#</a></h2>
+        <ul class="mt-3 list-disc pl-6 text-slate-700 space-y-2">
+          <li>Feature‑based folders with co‑located tests.</li>
+          <li>Edge‑cached media posters; LQIP → full‑res swap with fade to avoid black frames.</li>
+          <li>Strict TS configs; ESLint/Prettier; CI gate on tests and size limits.</li>
+        </ul>
+        <pre class="mt-4 p-4 bg-slate-900 text-slate-100 rounded-lg overflow-auto text-xs"><code>// Example route guard (simplified)
+import {{ Navigate, useLocation }} from "react-router-dom";
+
+export function RequireAuth({{ children }}) {{
+  const authed = useAuth();
+  const loc = useLocation();
+  return authed ? children : &lt;Navigate to="/signin" state={{ from: loc }} replace /&gt;;
+}}</code></pre>
+      </section>
+
+      <!-- Testing & Perf -->
+      <section id="testing" class="card p-6 shadow-soft">
+        <h2 class="text-2xl font-bold">Testing &amp; Performance <a class="anchor text-blue-600" href="#testing">#</a></h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <h3 class="font-semibold">Coverage</h3>
+            <ul class="list-disc pl-6 text-slate-700 space-y-2 mt-2">
+              <li>Playwright E2E for auth, create flow, and preview interactions.</li>
+              <li>Vitest unit tests for media utilities & route guards.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold">Perf Budget</h3>
+            <ul class="list-disc pl-6 text-slate-700 space-y-2 mt-2">
+              <li>LCP: &lt; 2.0s on hero (mid‑tier device).</li>
+              <li>CLS: &lt; 0.05; INP: &lt; 200ms.</li>
+              <li>Bundle alerts in CI; lazy routes for heavy code paths.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Lessons -->
+      <section id="lessons" class="card p-6 shadow-soft">
+        <h2 class="text-2xl font-bold">Challenges &amp; Lessons <a class="anchor text-blue-600" href="#lessons">#</a></h2>
+        <p class="mt-3 text-slate-700">Balancing high‑quality media with fast first paint required a dedicated poster strategy and careful preloading. AI tools accelerated scaffolding but still needed strong human review for edge cases (responsive states, focus management).</p>
+      </section>
+
+      <!-- Results -->
+      <section id="results" class="card p-6 shadow-soft">
+        <h2 class="text-2xl font-bold">Results <a class="anchor text-blue-600" href="#results">#</a></h2>
+        <ul class="mt-4 list-disc pl-6 text-slate-700 space-y-2">
+          <li>Shipped creation flow with stable preview interactions.</li>
+          <li>Established testing/analytics foundation for ongoing experiments.</li>
+          <li>Improved perceived performance with LCP below 2s.</li>
+        </ul>
+        <blockquote class="mt-6 border-l-4 pl-4 italic text-slate-700">“Chien communicates like a PM and ships like a senior FE. He moved us from concept to a clean, fast site.” — Founder, AI startup</blockquote>
+      </section>
+
+      <!-- Gallery -->
+      <section id="gallery" class="card p-6 shadow-soft">
+        <h2 class="text-2xl font-bold">Gallery <a class="anchor text-blue-600" href="#gallery">#</a></h2>
+        <p class="text-sm text-slate-500">Replace gray boxes with real screenshots or short MP4/WebM loops.</p>
+        <div class="mt-4 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div class="aspect-video rounded-lg bg-slate-200"></div>
+          <div class="aspect-video rounded-lg bg-slate-200"></div>
+          <div class="aspect-video rounded-lg bg-slate-200"></div>
+          <div class="aspect-video rounded-lg bg-slate-200"></div>
+          <div class="aspect-video rounded-lg bg-slate-200"></div>
+          <div class="aspect-video rounded-lg bg-slate-200"></div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="text-center">
+        <a href="#" class="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-blue-600 text-white hover:bg-blue-700 shadow-soft">Discuss a build like this</a>
+      </section>
+    </article>
+  </main>
+
+  <footer class="py-12 text-center text-sm text-slate-500">
+    © 2025 Chien Escalera Duong • <span class="kbd">J</span> / <span class="kbd">K</span> to jump sections
+  </footer>
+
+  <script>
+    // reading progress
+    const progress = document.getElementById('progress');
+    function updateProgress() {
+      const h = document.documentElement;
+      const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+      progress.style.width = scrolled + '%';
+      requestAnimationFrame(() => {});
+    }
+    document.addEventListener('scroll', updateProgress, { passive: true });
+    updateProgress();
+
+    // simple scrollspy for TOC
+    const links = document.querySelectorAll('.toc-link');
+    const sections = Array.from(links).map(a => document.querySelector(a.getAttribute('href')));
+    const opts = { rootMargin: '0px 0px -70% 0px', threshold: 0 };
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        const idx = sections.indexOf(e.target);
+        if (idx >= 0) {
+          if (e.isIntersecting) { links[idx].classList.add('text-blue-600'); }
+          else { links[idx].classList.remove('text-blue-600'); }
+        }
+      });
+    }, opts);
+    sections.forEach(s => s && obs.observe(s));
+
+    // j/k keyboard nav between sections
+    document.addEventListener('keydown', (e) => {
+      if (['INPUT','TEXTAREA'].includes(document.activeElement.tagName)) return;
+      const ids = sections.map(s => '#' + s.id);
+      let current = ids.findIndex(id => location.hash === id);
+      if (e.key === 'j') { current = Math.min(current + 1, ids.length - 1); location.hash = ids[current]; }
+      if (e.key === 'k') { current = Math.max(current - 1, 0); location.hash = ids[current]; }
+    });
+  </script>
+</body>
+</html>
