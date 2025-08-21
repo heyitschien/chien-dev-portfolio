@@ -5,6 +5,8 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Projects from './components/Projects';
 import Skills from './components/Skills';
+import FilmCredits from './components/FilmCredits';
+import HowIBuildAI from './components/HowIBuildAI';
 import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -62,6 +64,8 @@ const App: React.FC = () => {
                         <About />
                         <Projects />
                         <Skills />
+                        <FilmCredits />
+                        <HowIBuildAI />
                         <Testimonials />
                         <Contact />
                     </>
