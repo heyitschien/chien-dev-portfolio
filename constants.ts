@@ -67,6 +67,11 @@ export const PROJECTS: Project[] = [
   },
 ];
 
+// Conversion targets
+// Replace with your hosted PDF and video URLs when available
+export const RESUME_URL: string = '/assets/resume/chien-front-end-resume.pdf';
+export const INTRO_VIDEO_URL: string = 'https://www.youtube.com/watch?v=x_qm280q2e0';
+
 export const SKILLS: Skill[] = [
   { name: 'React', iconClass: 'fab fa-react' },
   { name: 'TypeScript', iconClass: 'fa-solid fa-code' },

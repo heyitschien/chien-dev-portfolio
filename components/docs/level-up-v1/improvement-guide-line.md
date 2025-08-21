@@ -28,7 +28,7 @@ Love the clean, airy feel—great typography, spacing, and an obvious CTA. What�
 **Buttons**
 
 * Primary: **View Case Studies**
-* Secondary: **Download Résumé** • **Book 15-min Call**
+* Secondary: **Download Resume** • **Book 15-min Call**
 
 Small trust row under the buttons (logos or text): *Avatar: The Way of Water · Disney · Warner Bros · Stanford*
 
@@ -118,23 +118,23 @@ Show 3–5 cards. Each card: **Role • Problem • What I built • Impact/metr
 
 **Front-End**
 
-* React, **TypeScript**, JavaScript (ES6+), HTML5, CSS3/Tailwind, Vite
-* State & routing: React Router, TanStack (if used)
-* Testing: **Playwright**, Vitest, Testing Library
-* a11y, SEO, analytics
+- React, TypeScript, JavaScript (ES6+), HTML5, CSS3/Tailwind, Vite
+- State & routing: React Router, TanStack (if used)
+- Testing: Playwright, Vitest, Testing Library
+- a11y, SEO, analytics
 
 **AI / Agentic**
 
-* Prompt engineering & evaluation
-* Agentic IDEs: **Cursor, Windsurf, Cline**
-* LLMs: **GPT, Claude, Gemini**
-* Patterns: RAG basics, tool-use/agents, test-time prompting
-* Integration: Google AI Studio / OpenAI APIs (where applicable)
+- Prompt engineering & evaluation
+- Agentic IDEs: Cursor, Windsurf, Cline
+- LLMs: GPT, Claude, Gemini
+- Patterns: RAG basics, tool-use/agents, test-time prompting
+- Integration: Google AI Studio / OpenAI APIs (where applicable)
 
 **Tooling & Ops**
 
-* Git/GitHub, Vercel, PostCSS/Autoprefixer, Sharp pipeline
-* CI checks, perf budgets, Lighthouse
+- Git/GitHub, Vercel, PostCSS/Autoprefixer, Sharp pipeline
+- CI checks, perf budgets, Lighthouse
 
 *(Swap the current big icons for a tidy, multi-column list; recruiters scan text faster than pictograms.)*
 

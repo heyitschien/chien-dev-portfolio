@@ -80,7 +80,7 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
                             onClick={() => setIsMenuOpen(!isMenuOpen)} 
                             aria-label="Toggle Menu" 
                             aria-controls="mobile-menu"
-                            aria-expanded={isMenuOpen}
+                            aria-expanded={isMenuOpen ? 'true' : 'false'}
                             className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors w-10 h-10 flex items-center justify-center"
                         >
                             <i className={`fa-solid ${isMenuOpen ? 'fa-xmark' : 'fa-bars'} text-xl text-on-surface-variant-light dark:text-on-surface-variant-dark`}></i>

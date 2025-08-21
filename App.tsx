@@ -11,6 +11,7 @@ import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import CaseStudyPage from './components/CaseStudyPage';
+import StickyCTA from './components/StickyCTA';
 
 type Theme = 'light' | 'dark';
 
@@ -71,6 +72,7 @@ const App: React.FC = () => {
                     </>
                 )}
             </main>
+            <StickyCTA />
             <Footer />
         </>
     );
