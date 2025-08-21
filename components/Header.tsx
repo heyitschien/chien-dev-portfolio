@@ -60,7 +60,7 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
                     <NavLink href="#about" active={activeHash === '#about'}>About</NavLink>
                     <NavLink href="#projects" active={activeHash === '#projects'}>Projects</NavLink>
                     <NavLink href="#skills" active={activeHash === '#skills'}>Skills</NavLink>
-                    <NavLink href="#ai-process" active={activeHash === '#ai-process'}>AI Process</NavLink>
+                    <NavLink href="#how-i-build-ai" active={activeHash === '#how-i-build-ai'}>AI Process</NavLink>
                     <NavLink href="#film-credits" active={activeHash === '#film-credits'}>Film Credits</NavLink>
                     <NavLink href="#contact" active={activeHash === '#contact'}>Contact</NavLink>
                 </div>
@@ -98,7 +98,7 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
                     <NavLink href="#about" active={activeHash === '#about'} onClick={closeMenu} className="block py-2 text-base font-medium">About</NavLink>
                     <NavLink href="#projects" active={activeHash === '#projects'} onClick={closeMenu} className="block py-2 text-base font-medium">Projects</NavLink>
                     <NavLink href="#skills" active={activeHash === '#skills'} onClick={closeMenu} className="block py-2 text-base font-medium">Skills</NavLink>
-                    <NavLink href="#ai-process" active={activeHash === '#ai-process'} onClick={closeMenu} className="block py-2 text-base font-medium">AI Process</NavLink>
+                    <NavLink href="#how-i-build-ai" active={activeHash === '#how-i-build-ai'} onClick={closeMenu} className="block py-2 text-base font-medium">AI Process</NavLink>
                     <NavLink href="#film-credits" active={activeHash === '#film-credits'} onClick={closeMenu} className="block py-2 text-base font-medium">Film Credits</NavLink>
                     <NavLink href="#contact" active={activeHash === '#contact'} onClick={closeMenu} className="block py-2 text-base font-medium">Contact</NavLink>
                 </div>
