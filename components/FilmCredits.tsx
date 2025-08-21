@@ -19,7 +19,7 @@ const credits: Credit[] = [
     title: 'Disney Studios',
     role: 'Stunt Performer',
     meta: 'titles available on request',
-    logo: '/assets/logos/disney-1.png',
+    logo: '/assets/logos/disney.png',
   },
   {
     title: 'Warner Bros',
@@ -30,21 +30,26 @@ const credits: Credit[] = [
 ];
 
 const Logo: React.FC<{ src?: string; alt: string }> = ({ src, alt }) => {
+  const boxClasses =
+    'h-10 w-10 rounded-md ring-1 ring-neutral-200/70 dark:ring-neutral-800/70 bg-white/70 dark:bg-white/10 flex items-center justify-center overflow-hidden';
+
   if (!src) {
     return (
-      <div className="h-9 w-9 rounded-md bg-neutral-200 dark:bg-neutral-700 flex items-center justify-center text-neutral-500">
+      <div className={`${boxClasses} text-neutral-500`}>
         <i className="fa-solid fa-clapperboard"></i>
       </div>
     );
   }
   return (
-    <img
-      src={src}
-      alt={alt}
-      className="h-9 w-9 rounded-md object-cover grayscale opacity-80 hover:opacity-100 transition-opacity"
-      loading="lazy"
-      decoding="async"
-    />
+    <div className={boxClasses}>
+      <img
+        src={src}
+        alt={alt}
+        className="h-full w-full object-contain p-1 grayscale opacity-90 hover:opacity-100 transition-opacity"
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
   );
 };
 
