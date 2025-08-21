@@ -45,7 +45,7 @@ const Logo: React.FC<{ src?: string; alt: string }> = ({ src, alt }) => {
       <img
         src={src}
         alt={alt}
-        className="h-full w-full object-contain p-1 grayscale opacity-90 hover:opacity-100 transition-opacity"
+        className="h-full w-full object-contain p-1"
         loading="lazy"
         decoding="async"
       />

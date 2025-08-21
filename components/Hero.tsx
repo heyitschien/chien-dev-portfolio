@@ -40,7 +40,7 @@ const Hero: React.FC = () => {
                 <ul className="flex items-center justify-center gap-x-8 overflow-x-auto px-2 sm:px-0 whitespace-nowrap flex-nowrap">
                     {[
                         { src: '/assets/logos/avatar.png', alt: 'Avatar: The Way of Water' },
-                        { src: '/assets/logos/disney-1.png', alt: 'Disney' },
+                        { src: '/assets/logos/disney.png', alt: 'Disney' },
                         { src: '/assets/logos/warner.png', alt: 'Warner Bros' },
                         { src: '/assets/logos/stanford.png', alt: 'Stanford' },
                     ].map((brand) => (
@@ -48,7 +48,7 @@ const Hero: React.FC = () => {
                             <img
                                 src={brand.src}
                                 alt={brand.alt}
-                                className="h-7 sm:h-8 md:h-9 w-auto object-contain grayscale opacity-80 hover:opacity-100 transition-opacity"
+                                className="h-7 sm:h-8 md:h-9 w-auto object-contain"
                                 loading="lazy"
                                 decoding="async"
                             />
