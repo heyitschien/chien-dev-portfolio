@@ -13,19 +13,19 @@ const credits: Credit[] = [
     title: 'Avatar: The Way of Water',
     role: 'Core MoCap Team',
     meta: '2.5 yrs, Lightstorm/20th Century',
-    logo: '/assets/logos/avatar.jpg',
+    logo: '/assets/logos/avatar.png',
   },
   {
     title: 'Disney Studios',
     role: 'Stunt Performer',
     meta: 'titles available on request',
-    logo: '/assets/logos/disney.png',
+    logo: '/assets/logos/disney-1.png',
   },
   {
     title: 'Warner Bros',
     role: 'Stunt Performer',
     meta: 'titles available on request',
-    logo: '/assets/logos/warner.jpeg',
+    logo: '/assets/logos/warner.png',
   },
 ];
 
