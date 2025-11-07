@@ -11,12 +11,18 @@ const Hero: React.FC = () => {
   return (
     <section
       id="hero"
-      className="relative flex min-h-[calc(100vh-80px)] flex-col items-center justify-center overflow-hidden py-20 text-center"
+      className="relative -mx-6 flex min-h-[calc(100vh-80px)] flex-col items-center justify-center overflow-hidden py-20 text-center md:-mx-6"
     >
-      {/* Full-width gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary-light/10 via-surface-light to-accent-solution/5 dark:from-primary-dark/10 dark:via-surface-dark dark:to-accent-solution/10" />
+      {/* Full-width gradient background - spans entire viewport */}
+      <div 
+        className="absolute inset-y-0 bg-gradient-to-br from-primary-light/10 via-surface-light to-accent-solution/5 dark:from-primary-dark/10 dark:via-surface-dark dark:to-accent-solution/10" 
+        style={{ 
+          left: 'calc(50% - 50vw)', 
+          width: '100vw'
+        }}
+      />
       
-      <div className="relative z-10">
+      <div className="relative z-10 w-full px-6 md:px-6">
         <div className="animate-fade-in-up">
           <div className="relative mx-auto mb-8 inline-block">
             {/* Gradient border wrapper */}
