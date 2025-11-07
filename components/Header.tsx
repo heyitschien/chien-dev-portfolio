@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Moon, Sun, Menu, X } from 'lucide-react';
 
 interface HeaderProps {
     theme: 'light' | 'dark';
@@ -79,9 +80,9 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
                 <div className="flex items-center space-x-2">
                     <button onClick={toggleTheme} aria-label="Toggle Theme" className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
                         {theme === 'light' ? (
-                            <i className="fa-solid fa-moon text-on-surface-variant-light"></i>
+                            <Moon className="w-5 h-5 text-on-surface-variant-light" />
                         ) : (
-                            <i className="fa-solid fa-sun text-on-surface-variant-dark"></i>
+                            <Sun className="w-5 h-5 text-on-surface-variant-dark" />
                         )}
                     </button>
                     {/* Hamburger Button */}
@@ -93,7 +94,11 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
                             aria-expanded={isMenuOpen ? 'true' : 'false'}
                             className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors w-10 h-10 flex items-center justify-center"
                         >
-                            <i className={`fa-solid ${isMenuOpen ? 'fa-xmark' : 'fa-bars'} text-xl text-on-surface-variant-light dark:text-on-surface-variant-dark`}></i>
+                            {isMenuOpen ? (
+                                <X className="w-6 h-6 text-on-surface-variant-light dark:text-on-surface-variant-dark" />
+                            ) : (
+                                <Menu className="w-6 h-6 text-on-surface-variant-light dark:text-on-surface-variant-dark" />
+                            )}
                         </button>
                     </div>
                 </div>

@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import { Video, Mail, Linkedin, Github, LayoutGrid, CalendarCheck, Download } from 'lucide-react';
 import Section from './Section';
 import { INTRO_VIDEO_URL, RESUME_URL } from '../constants';
 
@@ -43,7 +44,7 @@ const Contact: React.FC = () => {
       return (
         <div className="rounded-2xl border border-neutral-200/70 dark:border-neutral-800/70 bg-surface-light dark:bg-surface-dark p-6 text-left">
           <div className="flex items-start gap-3">
-            <i className="fa-solid fa-video text-primary-light dark:text-primary-dark mt-1" aria-hidden="true"></i>
+            <Video className="w-5 h-5 text-primary-light dark:text-primary-dark mt-1" aria-hidden="true" />
             <div>
               <div className="font-semibold mb-1">60s Intro</div>
               <p className="text-on-surface-variant-light dark:text-on-surface-variant-dark text-sm">Who I am, what I ship, how I work with AI. (Video coming soon)</p>
@@ -86,7 +87,7 @@ const Contact: React.FC = () => {
           title={copied ? 'Copied!' : 'Copy email'}
           className="text-4xl text-on-surface-variant-light dark:text-on-surface-variant-dark hover:text-primary-light dark:hover:text-primary-dark transition-transform transform hover:scale-110"
         >
-          <i className="fa-solid fa-envelope" aria-hidden="true"></i>
+          <Mail className="w-10 h-10" aria-hidden="true" />
           <span className="sr-only">Copy email to clipboard</span>
         </button>
         <a
@@ -96,7 +97,7 @@ const Contact: React.FC = () => {
           aria-label="LinkedIn profile"
           className="text-4xl text-on-surface-variant-light dark:text-on-surface-variant-dark hover:text-primary-light dark:hover:text-primary-dark transition-transform transform hover:scale-110"
         >
-          <i className="fa-brands fa-linkedin" aria-hidden="true"></i>
+          <Linkedin className="w-10 h-10" aria-hidden="true" />
         </a>
         <a
           href="https://github.com/Chien-Duong"
@@ -105,7 +106,7 @@ const Contact: React.FC = () => {
           aria-label="GitHub profile"
           className="text-4xl text-on-surface-variant-light dark:text-on-surface-variant-dark hover:text-primary-light dark:hover:text-primary-dark transition-transform transform hover:scale-110"
         >
-          <i className="fa-brands fa-github" aria-hidden="true"></i>
+          <Github className="w-10 h-10" aria-hidden="true" />
         </a>
       </div>
 
@@ -118,7 +119,7 @@ const Contact: React.FC = () => {
           href="#projects"
           className="bg-surface-light dark:bg-surface-dark border border-neutral-300 dark:border-neutral-700 text-on-surface-light dark:text-on-surface-dark font-semibold py-3 px-6 rounded-full transition-colors hover:bg-neutral-100 dark:hover:bg-neutral-800 inline-flex items-center gap-2"
         >
-          <i className="fa-solid fa-diagram-project" aria-hidden="true"></i>
+          <LayoutGrid className="w-5 h-5" aria-hidden="true" />
           <span>View Case Studies</span>
         </a>
         <a
@@ -127,7 +128,7 @@ const Contact: React.FC = () => {
           rel="noopener noreferrer"
           className="bg-primary-light hover:bg-blue-600 dark:bg-primary-dark dark:hover:bg-blue-300 dark:text-background-dark text-white font-bold py-3 px-6 rounded-full transition-transform transform hover:scale-105 shadow-lg inline-flex items-center gap-2"
         >
-          <i className="fa-solid fa-calendar-check" aria-hidden="true"></i>
+          <CalendarCheck className="w-5 h-5" aria-hidden="true" />
           <span>Schedule a Chat (Calendly)</span>
         </a>
         <a
@@ -141,7 +142,7 @@ const Contact: React.FC = () => {
           download={!!RESUME_URL}
           className={`bg-white dark:bg-surface-dark text-on-surface-light dark:text-on-surface-dark border border-neutral-300 dark:border-neutral-700 font-semibold py-3 px-6 rounded-full transition-colors hover:bg-neutral-100 dark:hover:bg-neutral-800 inline-flex items-center gap-2 ${!RESUME_URL ? 'opacity-60 cursor-not-allowed' : ''}`}
         >
-          <i className="fa-solid fa-file-arrow-down" aria-hidden="true"></i>
+          <Download className="w-5 h-5" aria-hidden="true" />
           <span>Download Resume (PDF)</span>
         </a>
       </div>

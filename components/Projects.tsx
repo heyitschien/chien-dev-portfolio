@@ -1,5 +1,6 @@
  
 import React from 'react';
+import { ExternalLink, Github } from 'lucide-react';
 import { PROJECTS } from '../constants';
 import { Project } from '../types';
 import Section from './Section';
@@ -70,10 +71,10 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
                 )}
                 <div className="flex items-center space-x-4 mt-auto pt-2">
                     {project.links?.live && (
-                        <a href={project.links.live} target="_blank" rel="noopener noreferrer" className="font-semibold text-primary-light dark:text-primary-dark hover:underline">Live <i className="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
+                        <a href={project.links.live} target="_blank" rel="noopener noreferrer" className="font-semibold text-primary-light dark:text-primary-dark hover:underline inline-flex items-center gap-1">Live <ExternalLink className="w-3 h-3" /></a>
                     )}
                     {project.links?.repo && (
-                        <a href={project.links.repo} target="_blank" rel="noopener noreferrer" className="font-semibold text-primary-light dark:text-primary-dark hover:underline">GitHub <i className="fa-brands fa-github text-xs"></i></a>
+                        <a href={project.links.repo} target="_blank" rel="noopener noreferrer" className="font-semibold text-primary-light dark:text-primary-dark hover:underline inline-flex items-center gap-1">GitHub <Github className="w-3 h-3" /></a>
                     )}
                     {project.links?.caseStudy && (
                         <a href={project.links.caseStudy} className="font-semibold text-primary-light dark:text-primary-dark hover:underline">Read case study →</a>

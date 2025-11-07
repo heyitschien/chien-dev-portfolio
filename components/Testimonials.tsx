@@ -1,12 +1,13 @@
 
 import React from 'react';
+import { Quote } from 'lucide-react';
 import { TESTIMONIALS } from '../constants';
 import { Testimonial } from '../types';
 import Section from './Section';
 
 const TestimonialCard: React.FC<{ testimonial: Testimonial }> = ({ testimonial }) => (
     <div className="bg-surface-light dark:bg-surface-dark p-8 rounded-2xl shadow-md">
-        <i className="fa-solid fa-quote-left text-3xl text-primary-light dark:text-primary-dark mb-4"></i>
+        <Quote className="w-8 h-8 text-primary-light dark:text-primary-dark mb-4" />
         <p className="text-on-surface-variant-light dark:text-on-surface-variant-dark italic mb-4">"{testimonial.quote}"</p>
         <div className="font-semibold">{testimonial.author}</div>
         <div className="text-sm text-on-surface-variant-light dark:text-on-surface-variant-dark">{testimonial.role}</div>

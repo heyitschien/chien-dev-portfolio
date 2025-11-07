@@ -1,4 +1,5 @@
 import React from 'react';
+import { Film } from 'lucide-react';
 import Section from './Section';
 
 type Credit = {
@@ -36,7 +37,7 @@ const Logo: React.FC<{ src?: string; alt: string }> = ({ src, alt }) => {
   if (!src) {
     return (
       <div className={`${boxClasses} text-neutral-500`}>
-        <i className="fa-solid fa-clapperboard"></i>
+        <Film className="w-5 h-5" />
       </div>
     );
   }

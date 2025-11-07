@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Film, Building2, Award, Bot } from 'lucide-react';
 import Section from './Section';
 
 const About: React.FC = () => {
@@ -21,31 +22,31 @@ const About: React.FC = () => {
                     <ul className="space-y-4 text-on-surface-variant-light dark:text-on-surface-variant-dark">
                         <li className="flex items-start">
                             <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-blue-50 dark:bg-blue-900/30 mr-3">
-                                <i className="fa-solid fa-clapperboard text-primary-light dark:text-primary-dark"></i>
+                                <Film className="w-4 h-4 text-primary-light dark:text-primary-dark" />
                             </span>
                             <span className="text-base">Avatar 2 – Core MoCap Team (2.5 yrs)</span>
                         </li>
                         <li className="flex items-start">
                             <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-blue-50 dark:bg-blue-900/30 mr-3">
-                                <i className="fa-solid fa-film text-primary-light dark:text-primary-dark"></i>
+                                <Film className="w-4 h-4 text-primary-light dark:text-primary-dark" />
                             </span>
                             <span className="text-base">Disney, Warner Bros credits</span>
                         </li>
                         <li className="flex items-start">
                             <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-blue-50 dark:bg-blue-900/30 mr-3">
-                                <i className="fa-solid fa-building-columns text-primary-light dark:text-primary-dark"></i>
+                                <Building2 className="w-4 h-4 text-primary-light dark:text-primary-dark" />
                             </span>
                             <span className="text-base">Stanford collaboration (UX & SEO)</span>
                         </li>
                         <li className="flex items-start">
                             <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-blue-50 dark:bg-blue-900/30 mr-3">
-                                <i className="fa-solid fa-certificate text-primary-light dark:text-primary-dark"></i>
+                                <Award className="w-4 h-4 text-primary-light dark:text-primary-dark" />
                             </span>
                             <span className="text-base">Meta Front-End Developer Certificate</span>
                         </li>
                         <li className="flex items-start">
                             <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-blue-50 dark:bg-blue-900/30 mr-3">
-                                <i className="fa-solid fa-robot text-primary-light dark:text-primary-dark"></i>
+                                <Bot className="w-4 h-4 text-primary-light dark:text-primary-dark" />
                             </span>
                             <span className="text-base">AI-Driven Dev: agentic workflows, evals, & E2E tests</span>
                         </li>

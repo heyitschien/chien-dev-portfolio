@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Download } from 'lucide-react';
 import { RESUME_URL } from '../constants';
 
 const Hero: React.FC = () => {
@@ -40,7 +41,7 @@ const Hero: React.FC = () => {
                         download={!!RESUME_URL}
                         className={`bg-surface-light dark:bg-surface-dark border border-gray-300 dark:border-gray-600 text-on-surface-light dark:text-on-surface-dark font-semibold py-3 px-4 rounded-full transition-colors hover:bg-gray-100 dark:hover:bg-gray-700 inline-flex items-center gap-2 ${!RESUME_URL ? 'opacity-60 cursor-not-allowed' : ''}`}
                     >
-                        <i className="fa-solid fa-file-arrow-down" aria-hidden="true"></i>
+                        <Download className="w-5 h-5" aria-hidden="true" />
                         <span>Download Resume</span>
                     </a>
                     <a href="#contact" onClick={(e) => handleCtaClick(e, '#contact')} className="bg-surface-light dark:bg-surface-dark border border-gray-300 dark:border-gray-600 text-on-surface-light dark:text-on-surface-dark font-semibold py-3 px-4 rounded-full transition-colors hover:bg-gray-100 dark:hover:bg-gray-700">
