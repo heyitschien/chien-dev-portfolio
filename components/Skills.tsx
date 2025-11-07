@@ -47,32 +47,67 @@ const GROUPS: Group[] = [
 ];
 
 const Skills: React.FC = () => {
+  const categoryConfig = [
+    {
+      title: "Front-End",
+      gradient: "from-blue-400 to-blue-600",
+      bgGradient: "from-blue-50 via-blue-50/50 to-blue-50",
+      borderColor: "border-blue-300",
+      iconBg: "from-blue-400 to-blue-500",
+    },
+    {
+      title: "AI / Agentic",
+      gradient: "from-purple-400 to-purple-600",
+      bgGradient: "from-purple-50 via-purple-50/50 to-purple-50",
+      borderColor: "border-purple-300",
+      iconBg: "from-purple-400 to-purple-500",
+    },
+    {
+      title: "Tooling & Ops",
+      gradient: "from-cyan-400 to-cyan-600",
+      bgGradient: "from-cyan-50 via-cyan-50/50 to-cyan-50",
+      borderColor: "border-cyan-300",
+      iconBg: "from-cyan-400 to-cyan-500",
+    },
+  ];
+
   return (
     <Section id="skills">
       <h2 className="mb-10 text-center text-4xl font-bold">Skills & Expertise</h2>
       <div className="grid gap-8 md:grid-cols-3">
-        {GROUPS.map((g) => (
-          <div
-            key={g.title}
-            className="rounded-xl border border-neutral-200/70 bg-surface-light p-5 dark:border-neutral-800/70 dark:bg-surface-dark"
-          >
-            <h3 className="mb-3 text-center text-xl font-semibold md:text-left">{g.title}</h3>
-            <ul className="space-y-2 text-on-surface-variant-light dark:text-on-surface-variant-dark">
-              {g.lines.map((line) => {
-                const IconComponent = line.icon;
-                return (
-                  <li key={line.text} className="flex items-start gap-2 leading-relaxed">
-                    <IconComponent
-                      className="mt-0.5 h-4 w-4 shrink-0 text-primary-light dark:text-primary-dark"
-                      aria-hidden="true"
-                    />
-                    <span>{line.text}</span>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-        ))}
+        {GROUPS.map((g, idx) => {
+          const config = categoryConfig[idx];
+          return (
+            <div
+              key={g.title}
+              className={`group relative overflow-hidden rounded-xl border-l-4 ${config.borderColor} bg-gradient-to-br ${config.bgGradient} p-5 shadow-md transition-all hover:-translate-y-1 hover:shadow-xl dark:from-blue-900/10 dark:via-purple-900/10 dark:to-cyan-900/10`}
+            >
+              <div className="mb-3 flex items-center gap-3">
+                <div className={`h-10 w-10 rounded-lg bg-gradient-to-br ${config.iconBg} flex items-center justify-center shadow-md`}>
+                  {g.lines[0] && (() => {
+                    const IconComponent = g.lines[0].icon;
+                    return <IconComponent className="h-5 w-5 text-white" aria-hidden="true" />;
+                  })()}
+                </div>
+                <h3 className="text-center text-xl font-semibold md:text-left">{g.title}</h3>
+              </div>
+              <ul className="space-y-2 text-on-surface-variant-light dark:text-on-surface-variant-dark">
+                {g.lines.map((line) => {
+                  const IconComponent = line.icon;
+                  return (
+                    <li key={line.text} className="flex items-start gap-2 leading-relaxed">
+                      <IconComponent
+                        className="mt-0.5 h-4 w-4 shrink-0 text-primary-light dark:text-primary-dark"
+                        aria-hidden="true"
+                      />
+                      <span>{line.text}</span>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          );
+        })}
       </div>
     </Section>
   );
