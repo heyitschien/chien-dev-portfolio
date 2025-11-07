@@ -6,9 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chien Duong – Front-End Developer</title>
     
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,55 +13,6 @@
     
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-
-    <script>
-        // Custom Tailwind configuration to extend theme
-        tailwind.config = {
-            darkMode: 'class', // Enable dark mode using a class
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                    colors: {
-                        'primary': {
-                            'light': '#4285F4', // Google Blue
-                            'dark': '#8ab4f8'
-                        },
-                        'background': {
-                            'light': '#f8f9fa', // Off-white
-                            'dark': '#202124'   // Google Dark Gray
-                        },
-                        'surface': {
-                            'light': '#ffffff',
-                            'dark': '#303134'
-                        },
-                        'on-surface': {
-                            'light': '#202124',
-                            'dark': '#e8eaed'
-                        },
-                        'on-surface-variant': {
-                             'light': '#5f6368',
-                             'dark': '#969ba1'
-                        }
-                    },
-                    animation: {
-                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards'
-                    },
-                    keyframes: {
-                        fadeInUp: {
-                            '0%': { opacity: '0', transform: 'translateY(20px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        /* Reading progress bar width controlled by CSS variable set in CaseStudyPage */
-        .progress-bar { width: var(--reading-progress, 0%); }
-    </style>
 <script type="importmap">
 {
   "imports": {

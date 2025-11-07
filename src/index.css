@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Reading progress bar - preserve existing custom styles */
+.progress-bar {
+  width: var(--reading-progress, 0%);
+}
+
