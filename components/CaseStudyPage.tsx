@@ -227,7 +227,7 @@ const CaseStudyPage: React.FC<CaseStudyPageProps> = ({ projectId }) => {
 
       {/* Hero Section - Enhanced */}
       <section className="relative overflow-hidden border-b border-gray-200 dark:border-gray-700">
-        {/* Full-width gradient background */}
+        {/* Full-width gradient background - spans entire viewport */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary-light/5 via-surface-light to-accent-solution/5 dark:from-primary-dark/10 dark:via-surface-dark dark:to-accent-solution/10" />
         {/* Content container */}
         <div className="relative mx-auto max-w-6xl px-4 py-12 md:px-6 md:py-16">

@@ -55,22 +55,22 @@ const App: React.FC = () => {
   return (
     <>
       <Header theme={theme} toggleTheme={toggleTheme} />
-      <main id="main" className="container mx-auto px-6">
-        {caseMatch ? (
+      {caseMatch ? (
+        <main id="main">
           <CaseStudyPage projectId={caseMatch[1]} />
-        ) : (
-          <>
-            <Hero />
-            <About />
-            <Projects />
-            <Skills />
-            <FilmCredits />
-            <HowIBuildAI />
-            <Testimonials />
-            <Contact />
-          </>
-        )}
-      </main>
+        </main>
+      ) : (
+        <main id="main" className="container mx-auto px-6">
+          <Hero />
+          <About />
+          <Projects />
+          <Skills />
+          <FilmCredits />
+          <HowIBuildAI />
+          <Testimonials />
+          <Contact />
+        </main>
+      )}
       <StickyCTA />
       <Footer />
     </>
