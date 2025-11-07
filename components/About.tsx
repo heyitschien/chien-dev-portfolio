@@ -30,7 +30,7 @@ const About: React.FC = () => {
             </p>
           </div>
         </div>
-        <div className="md:col-span-2 rounded-2xl border-l-4 border-primary-light bg-gradient-to-br from-blue-50 via-purple-50 to-blue-50 p-6 shadow-lg transition-shadow hover:shadow-xl dark:border-primary-dark dark:from-blue-900/20 dark:via-purple-900/20 dark:to-blue-900/20">
+        <div className="md:col-span-2 w-full rounded-2xl border-l-4 border-primary-light bg-gradient-to-br from-blue-50 via-purple-50 to-blue-50 p-6 shadow-lg transition-shadow hover:shadow-xl dark:border-primary-dark dark:from-blue-900/20 dark:via-purple-900/20 dark:to-blue-900/20">
           <h4 className="mb-4 text-xl font-semibold">Career Highlights</h4>
           <ul className="space-y-4 text-on-surface-variant-light dark:text-on-surface-variant-dark">
             <li className="flex items-start">
