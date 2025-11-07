@@ -60,16 +60,18 @@ const App: React.FC = () => {
           <CaseStudyPage projectId={caseMatch[1]} />
         </main>
       ) : (
-        <main id="main" className="container mx-auto px-6">
+        <>
           <Hero />
-          <About />
-          <Projects />
-          <Skills />
-          <FilmCredits />
-          <HowIBuildAI />
-          <Testimonials />
-          <Contact />
-        </main>
+          <main id="main" className="container mx-auto px-6">
+            <About />
+            <Projects />
+            <Skills />
+            <FilmCredits />
+            <HowIBuildAI />
+            <Testimonials />
+            <Contact />
+          </main>
+        </>
       )}
       <StickyCTA />
       <Footer />
