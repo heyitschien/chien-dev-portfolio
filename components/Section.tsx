@@ -43,7 +43,7 @@ const Section: React.FC<SectionProps> = ({ id, children, className = '' }) => {
         <section
             id={id}
             ref={sectionRef}
-            className={`py-24 ${animationClasses} ${className}`}
+            className={`py-24 scroll-mt-20 ${animationClasses} ${className}`}
         >
             {children}
         </section>

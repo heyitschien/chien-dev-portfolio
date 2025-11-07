@@ -2,8 +2,15 @@ import React from 'react';
 
 const StickyCTA: React.FC = () => {
   const onClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' });
+    const isOnCaseStudy = window.location.hash.startsWith('#/case/');
+
+    if (!isOnCaseStudy) {
+        // Only do smooth scroll if on the main page
+        e.preventDefault();
+        document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' });
+    }
+    // If on a case study page, do nothing here and let the default
+    // anchor link behavior navigate to /#projects.
   };
 
   return (

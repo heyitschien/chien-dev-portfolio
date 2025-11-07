@@ -7,19 +7,24 @@ interface HeaderProps {
 
 const NavLink: React.FC<{ href: string; children: React.ReactNode; onClick?: () => void; className?: string; active?: boolean }> = ({ href, children, onClick, className = '', active }) => {
     const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-        e.preventDefault();
-        const targetElement = document.querySelector(href);
-        if (targetElement) {
-            targetElement.scrollIntoView({ behavior: 'smooth' });
+        const isOnCaseStudy = window.location.hash.startsWith('#/case/');
+
+        if (!isOnCaseStudy) {
+            // Only do smooth scroll if on the main page
+            e.preventDefault();
+            const targetElement = document.querySelector(href);
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+            }
+            if (history.pushState) {
+                history.pushState(null, '', href);
+            } else {
+                window.location.hash = href;
+            }
         }
+        
         if (onClick) {
-            onClick(); // Execute the callback, e.g., to close the mobile menu.
-        }
-        // update hash for accessibility and active state
-        if (history.pushState) {
-            history.pushState(null, '', href);
-        } else {
-            window.location.hash = href;
+            onClick(); // Always close menu if function is provided
         }
     };
 
@@ -38,7 +43,12 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
 
     const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
         e.preventDefault();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        const isOnCaseStudy = window.location.hash.startsWith('#/case/');
+        if (isOnCaseStudy) {
+            window.location.hash = '';
+        } else {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
         closeMenu();
     };
 

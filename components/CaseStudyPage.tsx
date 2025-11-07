@@ -341,7 +341,7 @@ const CaseStudyPage: React.FC<CaseStudyPageProps> = ({ projectId }) => {
               <li>Edge-cached media posters; LQIP → full-res swap with fade to avoid black frames.</li>
               <li>Strict TS configs; ESLint/Prettier; CI gate on tests and size limits.</li>
             </ul>
-            <pre className="mt-4 p-4 bg-neutral-900 text-neutral-100 rounded-lg overflow-auto text-xs"><code>{`// Example route guard (simplified)
+            <pre className="mt-4 p-4 bg-neutral-900 text-neutral-100 rounded-lg overflow-auto text-xs whitespace-pre-wrap"><code>{`// Example route guard (simplified)
 import { Navigate, useLocation } from "react-router-dom";
 
 export function RequireAuth({ children }: { children: React.ReactNode }) {
