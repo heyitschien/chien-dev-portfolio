@@ -122,6 +122,21 @@ const CaseStudyPage: React.FC<CaseStudyPageProps> = ({ projectId }) => {
     };
   }, [progress]);
 
+  // Build a gallery of up to 6 items (must be before early return)
+  const galleryItems = useMemo(() => {
+    if (!project) return new Array(6).fill(null);
+    const imgs = project.images ?? [];
+    if (imgs.length === 0) return new Array(6).fill(null);
+    const out: (typeof imgs[number] | null)[] = [];
+    let i = 0;
+    while (out.length < 6) {
+      out.push(imgs[i % imgs.length]);
+      i++;
+      if (i > 24) break; // guard
+    }
+    return out;
+  }, [project]);
+
   if (!project) {
     return (
       <div className="py-16 text-center">
@@ -138,20 +153,6 @@ const CaseStudyPage: React.FC<CaseStudyPageProps> = ({ projectId }) => {
     project.impact && project.impact.length > 0
       ? project.impact.slice(0, 3)
       : ['1.9s LCP on hero (median)', '100 a11y score (Lighthouse)', 'Preview errors reduced; conversion up'];
-
-  // Build a gallery of up to 6 items
-  const galleryItems = useMemo(() => {
-    const imgs = project.images ?? [];
-    if (imgs.length === 0) return new Array(6).fill(null);
-    const out: (typeof imgs[number] | null)[] = [];
-    let i = 0;
-    while (out.length < 6) {
-      out.push(imgs[i % imgs.length]);
-      i++;
-      if (i > 24) break; // guard
-    }
-    return out;
-  }, [project.images]);
 
   return (
     <div className="relative">
