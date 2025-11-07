@@ -6,4 +6,3 @@
 .progress-bar {
   width: var(--reading-progress, 0%);
 }
-
