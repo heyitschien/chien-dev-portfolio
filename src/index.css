@@ -2,7 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Reading progress bar - preserve existing custom styles */
+/* Reading progress bar */
 .progress-bar {
   width: var(--reading-progress, 0%);
+  transition: width 0.1s ease-out;
 }
