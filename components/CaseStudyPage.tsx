@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 import { PROJECTS } from "../constants";
 import { Project } from "../types";
+import LiquidGradientBackground from "./LiquidGradientBackground";
 
 interface CaseStudyPageProps {
   projectId: string;
@@ -227,10 +228,22 @@ const CaseStudyPage: React.FC<CaseStudyPageProps> = ({ projectId }) => {
 
       {/* Hero Section - Enhanced */}
       <section className="relative overflow-hidden border-b border-gray-200 dark:border-gray-700">
-        {/* Full-width gradient background - spans entire viewport */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-light/5 via-surface-light to-accent-solution/5 dark:from-primary-dark/10 dark:via-surface-dark dark:to-accent-solution/10" />
+        <LiquidGradientBackground variant="case-study" className="absolute inset-0" />
+        
+        {/* Optional: Hero Image Overlay */}
+        {heroImg && (
+          <div className="absolute inset-0 opacity-20 dark:opacity-10 z-0">
+            <img
+              src={heroImg.src}
+              alt={heroImg.alt}
+              className="h-full w-full object-cover"
+              loading="eager"
+            />
+          </div>
+        )}
+
         {/* Content container */}
-        <div className="relative mx-auto max-w-6xl px-4 py-12 md:px-6 md:py-16">
+        <div className="relative z-10 mx-auto max-w-6xl px-4 py-12 md:px-6 md:py-16">
           <div className="grid gap-10 lg:grid-cols-3">
             <div className="lg:col-span-2">
               <p className="text-xs font-semibold uppercase tracking-wide text-primary-light dark:text-primary-dark">
@@ -253,7 +266,7 @@ const CaseStudyPage: React.FC<CaseStudyPageProps> = ({ projectId }) => {
                 ))}
               </div>
             </div>
-            <aside className="self-start rounded-xl border border-gray-200 bg-white p-6 shadow-lg transition-shadow hover:shadow-xl dark:border-gray-700 dark:bg-neutral-900">
+            <aside className="self-start rounded-xl border border-white/20 bg-white/10 backdrop-blur-sm p-6 shadow-lg transition-shadow hover:shadow-xl dark:border-white/10 dark:bg-white/5" style={{ filter: "url(#glass-effect)" }}>
               <dl className="text-sm">
                 <div className="flex justify-between border-b border-gray-200 py-2 dark:border-gray-700">
                   <dt className="text-on-surface-variant-light dark:text-on-surface-variant-dark">

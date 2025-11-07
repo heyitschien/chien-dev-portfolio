@@ -50,6 +50,7 @@ const NavLink: React.FC<{
 const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeHash, setActiveHash] = useState<string>(window.location.hash || "#hero");
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const closeMenu = () => setIsMenuOpen(false);
 
@@ -70,10 +71,25 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
     return () => window.removeEventListener("hashchange", handler);
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      setIsScrolled(scrollY > 50); // Threshold for transition
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll(); // Check initial state
+    return () => window.removeEventListener("scroll", handleScroll as any);
+  }, []);
+
   return (
     <header
       id="header"
-      className="sticky top-0 z-50 border-b border-gray-200 bg-surface-light/80 backdrop-blur-sm transition-colors duration-300 dark:border-gray-700 dark:bg-surface-dark/80"
+      className={`sticky top-0 z-50 border-b transition-all duration-500 ${
+        isScrolled
+          ? "border-gray-200 bg-surface-light/95 backdrop-blur-md dark:border-gray-700 dark:bg-surface-dark/95"
+          : "border-transparent bg-transparent backdrop-blur-sm"
+      }`}
     >
       {/* Skip to content link */}
       <a
@@ -86,29 +102,57 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
         <a
           href="#"
           onClick={handleLogoClick}
-          className="text-xl font-bold text-primary-light dark:text-primary-dark"
+          className={`text-xl font-bold transition-colors ${
+            isScrolled 
+              ? "text-primary-light dark:text-primary-dark" 
+              : "text-white"
+          }`}
         >
           CD
         </a>
 
         {/* Desktop Navigation */}
         <div className="hidden items-center space-x-6 md:flex">
-          <NavLink href="#about" active={activeHash === "#about"}>
+          <NavLink 
+            href="#about" 
+            active={activeHash === "#about"}
+            className={!isScrolled ? "text-white/90 hover:text-white" : ""}
+          >
             About
           </NavLink>
-          <NavLink href="#projects" active={activeHash === "#projects"}>
+          <NavLink 
+            href="#projects" 
+            active={activeHash === "#projects"}
+            className={!isScrolled ? "text-white/90 hover:text-white" : ""}
+          >
             Projects
           </NavLink>
-          <NavLink href="#skills" active={activeHash === "#skills"}>
+          <NavLink 
+            href="#skills" 
+            active={activeHash === "#skills"}
+            className={!isScrolled ? "text-white/90 hover:text-white" : ""}
+          >
             Skills
           </NavLink>
-          <NavLink href="#how-i-build-ai" active={activeHash === "#how-i-build-ai"}>
+          <NavLink 
+            href="#how-i-build-ai" 
+            active={activeHash === "#how-i-build-ai"}
+            className={!isScrolled ? "text-white/90 hover:text-white" : ""}
+          >
             AI Process
           </NavLink>
-          <NavLink href="#film-credits" active={activeHash === "#film-credits"}>
+          <NavLink 
+            href="#film-credits" 
+            active={activeHash === "#film-credits"}
+            className={!isScrolled ? "text-white/90 hover:text-white" : ""}
+          >
             Film Credits
           </NavLink>
-          <NavLink href="#contact" active={activeHash === "#contact"}>
+          <NavLink 
+            href="#contact" 
+            active={activeHash === "#contact"}
+            className={!isScrolled ? "text-white/90 hover:text-white" : ""}
+          >
             Contact
           </NavLink>
         </div>
@@ -118,12 +162,16 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
           <button
             onClick={toggleTheme}
             aria-label="Toggle Theme"
-            className="rounded-full p-2 transition-colors hover:bg-gray-200 dark:hover:bg-gray-700"
+            className={`rounded-full p-2 transition-colors ${
+              isScrolled
+                ? "hover:bg-gray-200 dark:hover:bg-gray-700"
+                : "hover:bg-white/10 text-white/90"
+            }`}
           >
             {theme === "light" ? (
-              <Moon className="h-5 w-5 text-on-surface-variant-light" />
+              <Moon className={`h-5 w-5 ${isScrolled ? "text-on-surface-variant-light" : "text-white/90"}`} />
             ) : (
-              <Sun className="h-5 w-5 text-on-surface-variant-dark" />
+              <Sun className={`h-5 w-5 ${isScrolled ? "text-on-surface-variant-dark" : "text-white/90"}`} />
             )}
           </button>
           {/* Hamburger Button */}
@@ -132,8 +180,12 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle Menu"
               aria-controls="mobile-menu"
-              aria-expanded={isMenuOpen ? "true" : "false"}
-              className="flex h-10 w-10 items-center justify-center rounded-full p-2 transition-colors hover:bg-gray-200 dark:hover:bg-gray-700"
+              aria-expanded={isMenuOpen}
+              className={`flex h-10 w-10 items-center justify-center rounded-full p-2 transition-colors ${
+                isScrolled
+                  ? "hover:bg-gray-200 dark:hover:bg-gray-700"
+                  : "hover:bg-white/10"
+              }`}
             >
               {isMenuOpen ? (
                 <X className="h-6 w-6 text-on-surface-variant-light dark:text-on-surface-variant-dark" />

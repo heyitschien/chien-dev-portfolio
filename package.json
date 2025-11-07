@@ -13,6 +13,7 @@
     "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,css,md}\""
   },
   "dependencies": {
+    "@paper-design/shaders-react": "^0.0.62",
     "clsx": "^2.1.1",
     "lucide-react": "^0.553.0",
     "react": "^19.1.0",
