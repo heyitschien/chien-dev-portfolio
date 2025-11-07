@@ -2,7 +2,7 @@
 
 **Last Updated:** January 2025  
 **Project:** Chien Escalera Duong Portfolio Website  
-**Branch:** `fix/case-study-overflow`
+**Branch:** `modernize/update-stack` ✅ **MODERNIZED**
 
 ---
 
