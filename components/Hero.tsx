@@ -10,10 +10,15 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <LiquidGradientBackground variant="hero" className="min-h-screen">
+    <>
+      {/* Fixed gradient background covering entire viewport - only visible in hero area */}
+      <div className="fixed inset-0 -z-10 pointer-events-none">
+        <LiquidGradientBackground variant="hero" className="h-full w-full" />
+      </div>
+      
       <section
         id="hero"
-        className="relative flex min-h-[calc(100vh-80px)] flex-col items-center justify-center py-20 text-center"
+        className="relative flex min-h-screen flex-col items-center justify-center py-20 pt-32 text-center z-0"
       >
         <div className="relative z-10 container mx-auto px-6">
           {/* Profile Picture */}
@@ -116,7 +121,7 @@ const Hero: React.FC = () => {
         </div>
       </div>
     </section>
-    </LiquidGradientBackground>
+    </>
   );
 };
 

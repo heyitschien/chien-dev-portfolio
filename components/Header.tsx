@@ -85,10 +85,10 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
   return (
     <header
       id="header"
-      className={`sticky top-0 z-50 border-b transition-all duration-500 ${
+      className={`sticky top-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? "border-gray-200 bg-surface-light/95 backdrop-blur-md dark:border-gray-700 dark:bg-surface-dark/95"
-          : "border-transparent bg-transparent backdrop-blur-sm"
+          ? "border-b border-gray-200 bg-surface-light/95 backdrop-blur-md dark:border-gray-700 dark:bg-surface-dark/95"
+          : "border-b-0 bg-transparent backdrop-blur-0"
       }`}
     >
       {/* Skip to content link */}
@@ -180,7 +180,7 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle Menu"
               aria-controls="mobile-menu"
-              aria-expanded={isMenuOpen}
+              aria-expanded={isMenuOpen.toString()}
               className={`flex h-10 w-10 items-center justify-center rounded-full p-2 transition-colors ${
                 isScrolled
                   ? "hover:bg-gray-200 dark:hover:bg-gray-700"

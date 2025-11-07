@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Ensure body is transparent so gradient shows through */
+@layer base {
+  html, body {
+    background: transparent;
+  }
+}
+
 /* Reading progress bar */
 .progress-bar {
   width: var(--reading-progress, 0%);
