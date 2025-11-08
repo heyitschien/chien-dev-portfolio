@@ -51,28 +51,28 @@ const steps: Step[] = [
 const HowIBuildAI: React.FC = () => {
   return (
     <Section id="how-i-build-ai">
-      <h2 className="mb-8 text-center text-4xl font-bold">How I Build with AI</h2>
+      <h2 className="mb-8 text-center text-4xl md:text-5xl font-extrabold text-white">How I Build with AI</h2>
       <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
         {steps.map((s, idx) => {
           const IconComponent = s.icon;
           return (
             <div
               key={s.title}
-              className={`relative rounded-2xl border ${s.color} bg-surface-light p-5 shadow-sm transition-shadow hover:shadow-md dark:bg-surface-dark`}
+              className={`relative rounded-2xl border-l-4 ${s.color} bg-white/10 backdrop-blur-md border-r border-t border-b border-white/20 p-5 shadow-lg transition-all hover:scale-[1.02] hover:shadow-xl hover:border-white/30`}
             >
               <div className="flex items-start gap-3">
                 <div
-                  className={`h-9 w-9 ${s.tint} flex shrink-0 items-center justify-center rounded-lg text-on-surface-light dark:text-on-surface-dark`}
+                  className={`h-9 w-9 ${s.tint} bg-white/20 backdrop-blur-sm flex shrink-0 items-center justify-center rounded-lg border border-white/20`}
                   aria-hidden
                 >
-                  <IconComponent className="h-5 w-5" />
+                  <IconComponent className="h-5 w-5 text-white" />
                 </div>
                 <div>
-                  <div className="text-[11px] font-semibold uppercase tracking-wide text-on-surface-variant-light dark:text-on-surface-variant-dark">
+                  <div className="text-[11px] font-semibold uppercase tracking-wide text-white/70">
                     Step {idx + 1}
                   </div>
-                  <div className="mb-1 text-lg font-semibold leading-tight">{s.title}</div>
-                  <div className="text-[15px] leading-relaxed">{s.text}</div>
+                  <div className="mb-1 text-lg font-semibold leading-tight text-white">{s.title}</div>
+                  <div className="text-[15px] leading-relaxed text-white/90">{s.text}</div>
                 </div>
               </div>
             </div>

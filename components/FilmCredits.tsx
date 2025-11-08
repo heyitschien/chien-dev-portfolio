@@ -32,11 +32,11 @@ const credits: Credit[] = [
 
 const Logo: React.FC<{ src?: string; alt: string }> = ({ src, alt }) => {
   const boxClasses =
-    "h-10 w-10 rounded-md ring-1 ring-neutral-200/70 dark:ring-neutral-800/70 bg-white/70 dark:bg-white/10 flex items-center justify-center overflow-hidden";
+    "h-12 w-12 rounded-lg bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center overflow-hidden p-2";
 
   if (!src) {
     return (
-      <div className={`${boxClasses} text-neutral-500`}>
+      <div className={`${boxClasses} text-white/70`}>
         <Film className="h-5 w-5" />
       </div>
     );
@@ -46,7 +46,7 @@ const Logo: React.FC<{ src?: string; alt: string }> = ({ src, alt }) => {
       <img
         src={src}
         alt={alt}
-        className="h-full w-full object-contain p-1"
+        className="h-full w-full object-contain"
         loading="lazy"
         decoding="async"
       />
@@ -57,26 +57,26 @@ const Logo: React.FC<{ src?: string; alt: string }> = ({ src, alt }) => {
 const FilmCredits: React.FC = () => {
   return (
     <Section id="film-credits">
-      <h2 className="mb-8 text-center text-4xl font-bold">Film Credits</h2>
+      <h2 className="mb-8 text-center text-4xl md:text-5xl font-extrabold text-white">Film Credits</h2>
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {credits.map((c) => (
           <div
             key={`${c.title}-${c.role}`}
-            className="group rounded-2xl border border-neutral-200/70 bg-surface-light p-5 shadow-sm transition-shadow duration-200 hover:shadow-md dark:border-neutral-800/70 dark:bg-surface-dark"
+            className="group rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 p-5 shadow-lg transition-all hover:scale-[1.02] hover:shadow-xl hover:border-white/30"
           >
             <div className="mb-2 flex items-center gap-3">
               <Logo src={c.logo} alt={`${c.title} logo`} />
-              <div className="font-semibold leading-tight">{c.title}</div>
+              <div className="font-semibold leading-tight text-white">{c.title}</div>
             </div>
-            <div className="text-sm text-on-surface-variant-light dark:text-on-surface-variant-dark">
-              <span className="font-medium">{c.role}</span>
+            <div className="text-sm text-white/80">
+              <span className="font-medium text-white/90">{c.role}</span>
               {c.meta ? ` — ${c.meta}` : ""}
             </div>
           </div>
         ))}
       </div>
 
-      <p className="mt-6 text-center text-sm text-on-surface-variant-light dark:text-on-surface-variant-dark">
+      <p className="mt-6 text-center text-sm text-white/70">
         Full credits available upon request.
       </p>
     </Section>

@@ -41,15 +41,15 @@ const Contact: React.FC = () => {
   const renderIntroVideo = () => {
     if (!INTRO_VIDEO_URL) {
       return (
-        <div className="rounded-2xl border border-neutral-200/70 bg-surface-light p-6 text-left dark:border-neutral-800/70 dark:bg-surface-dark">
+        <div className="rounded-2xl border border-white/20 bg-white/10 backdrop-blur-sm p-6 text-left">
           <div className="flex items-start gap-3">
             <Video
-              className="mt-1 h-5 w-5 text-primary-light dark:text-primary-dark"
+              className="mt-1 h-5 w-5 text-white"
               aria-hidden="true"
             />
             <div>
-              <div className="mb-1 font-semibold">60s Intro</div>
-              <p className="text-sm text-on-surface-variant-light dark:text-on-surface-variant-dark">
+              <div className="mb-1 font-semibold text-white">60s Intro</div>
+              <p className="text-sm text-white/70">
                 Who I am, what I ship, how I work with AI. (Video coming soon)
               </p>
             </div>
@@ -59,7 +59,7 @@ const Contact: React.FC = () => {
     }
     if (/youtu\.be|youtube\.com/.test(INTRO_VIDEO_URL)) {
       return (
-        <div className="aspect-video w-full overflow-hidden rounded-2xl shadow-lg">
+        <div className="aspect-video w-full overflow-hidden rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 shadow-lg">
           <iframe
             className="h-full w-full"
             src={toYouTubeEmbed(INTRO_VIDEO_URL)}
@@ -71,7 +71,7 @@ const Contact: React.FC = () => {
       );
     }
     return (
-      <video className="aspect-video w-full overflow-hidden rounded-2xl shadow-lg" controls>
+      <video className="aspect-video w-full overflow-hidden rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 shadow-lg" controls>
         <source src={INTRO_VIDEO_URL} />
         Your browser does not support the video tag.
       </video>
@@ -80,8 +80,8 @@ const Contact: React.FC = () => {
 
   return (
     <Section id="contact" className="text-center">
-      <h2 className="mb-4 text-4xl font-bold">Let's Build Something Great.</h2>
-      <p className="mx-auto mb-8 max-w-2xl text-lg text-on-surface-variant-light dark:text-on-surface-variant-dark">
+      <h2 className="mb-4 text-4xl md:text-5xl font-extrabold text-white">Let's Build Something Great.</h2>
+      <p className="mx-auto mb-8 max-w-2xl text-lg text-white/90">
         I'm currently available for freelance projects and full-time opportunities. Feel free to
         reach out or schedule a chat.
       </p>
@@ -92,7 +92,7 @@ const Contact: React.FC = () => {
           onClick={copyEmail}
           aria-label="Copy email to clipboard"
           title={copied ? "Copied!" : "Copy email"}
-          className="transform text-4xl text-on-surface-variant-light transition-transform hover:scale-110 hover:text-primary-light dark:text-on-surface-variant-dark dark:hover:text-primary-dark"
+          className="transform text-white/80 transition-all hover:scale-110 hover:text-white"
         >
           <Mail className="h-10 w-10" aria-hidden="true" />
           <span className="sr-only">Copy email to clipboard</span>
@@ -102,7 +102,7 @@ const Contact: React.FC = () => {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="LinkedIn profile"
-          className="transform text-4xl text-on-surface-variant-light transition-transform hover:scale-110 hover:text-primary-light dark:text-on-surface-variant-dark dark:hover:text-primary-dark"
+          className="transform text-white/80 transition-all hover:scale-110 hover:text-white"
         >
           <Linkedin className="h-10 w-10" aria-hidden="true" />
         </a>
@@ -111,7 +111,7 @@ const Contact: React.FC = () => {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="GitHub profile"
-          className="transform text-4xl text-on-surface-variant-light transition-transform hover:scale-110 hover:text-primary-light dark:text-on-surface-variant-dark dark:hover:text-primary-dark"
+          className="transform text-white/80 transition-all hover:scale-110 hover:text-white"
         >
           <Github className="h-10 w-10" aria-hidden="true" />
         </a>
@@ -122,7 +122,7 @@ const Contact: React.FC = () => {
       <div className="flex flex-wrap justify-center gap-3">
         <a
           href="#projects"
-          className="inline-flex items-center gap-2 rounded-full border border-neutral-300 bg-surface-light px-6 py-3 font-semibold text-on-surface-light transition-colors hover:bg-neutral-100 dark:border-neutral-700 dark:bg-surface-dark dark:text-on-surface-dark dark:hover:bg-neutral-800"
+          className="inline-flex items-center gap-2 rounded-full border-2 border-white/30 bg-white/10 backdrop-blur-sm px-6 py-3 font-semibold text-white transition-all hover:scale-105 hover:bg-white/20 hover:shadow-lg"
         >
           <LayoutGrid className="h-5 w-5" aria-hidden="true" />
           <span>View Case Studies</span>
@@ -131,7 +131,7 @@ const Contact: React.FC = () => {
           href="https://calendly.com/chien-duong/30min"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex transform items-center gap-2 rounded-full bg-primary-light px-6 py-3 font-bold text-white shadow-lg transition-transform hover:scale-105 hover:bg-blue-600 dark:bg-primary-dark dark:text-background-dark dark:hover:bg-blue-300"
+          className="inline-flex transform items-center gap-2 rounded-full bg-gradient-to-r from-primary-light to-accent-solution px-6 py-3 font-bold text-white shadow-xl transition-all hover:scale-105 hover:shadow-2xl dark:from-primary-dark dark:to-accent-solution"
         >
           <CalendarCheck className="h-5 w-5" aria-hidden="true" />
           <span>Schedule a Chat (Calendly)</span>
@@ -141,13 +141,13 @@ const Contact: React.FC = () => {
           onClick={(e) => {
             if (!RESUME_URL) e.preventDefault();
           }}
-          aria-disabled={!RESUME_URL ? "true" : undefined}
+          {...(!RESUME_URL && { "aria-disabled": "true" })}
           tabIndex={RESUME_URL ? undefined : -1}
           title={RESUME_URL ? "Download Resume (PDF)" : "Resume coming soon"}
           target={RESUME_URL ? "_blank" : undefined}
           rel={RESUME_URL ? "noopener noreferrer" : undefined}
           download={!!RESUME_URL}
-          className={`inline-flex items-center gap-2 rounded-full border border-neutral-300 bg-white px-6 py-3 font-semibold text-on-surface-light transition-colors hover:bg-neutral-100 dark:border-neutral-700 dark:bg-surface-dark dark:text-on-surface-dark dark:hover:bg-neutral-800 ${!RESUME_URL ? "cursor-not-allowed opacity-60" : ""}`}
+          className={`inline-flex items-center gap-2 rounded-full border-2 border-white/30 bg-white/10 backdrop-blur-sm px-6 py-3 font-semibold text-white transition-all hover:scale-105 hover:bg-white/20 hover:shadow-lg ${!RESUME_URL ? "cursor-not-allowed opacity-60" : ""}`}
         >
           <Download className="h-5 w-5" aria-hidden="true" />
           <span>Download Resume (PDF)</span>

@@ -73,14 +73,14 @@ const Skills: React.FC = () => {
 
   return (
     <Section id="skills">
-      <h2 className="mb-10 text-center text-4xl font-bold">Skills & Expertise</h2>
+      <h2 className="mb-10 text-center text-4xl md:text-5xl font-extrabold text-white">Skills & Expertise</h2>
       <div className="grid gap-8 md:grid-cols-3">
         {GROUPS.map((g, idx) => {
           const config = categoryConfig[idx];
           return (
             <div
               key={g.title}
-              className={`group relative overflow-hidden rounded-xl border-l-4 ${config.borderColor} bg-gradient-to-br ${config.bgGradient} p-5 shadow-md transition-all hover:-translate-y-1 hover:shadow-xl dark:from-blue-900/10 dark:via-purple-900/10 dark:to-cyan-900/10`}
+              className={`group relative overflow-hidden rounded-xl border-l-4 ${config.borderColor} bg-white/10 backdrop-blur-md border-r border-t border-b border-white/20 p-5 shadow-lg transition-all hover:-translate-y-1 hover:shadow-xl hover:border-white/30`}
             >
               <div className="mb-3 flex items-center gap-3">
                 <div className={`h-10 w-10 rounded-lg bg-gradient-to-br ${config.iconBg} flex items-center justify-center shadow-md`}>
@@ -89,18 +89,18 @@ const Skills: React.FC = () => {
                     return <IconComponent className="h-5 w-5 text-white" aria-hidden="true" />;
                   })()}
                 </div>
-                <h3 className="text-center text-xl font-semibold md:text-left">{g.title}</h3>
+                <h3 className="text-center text-xl font-semibold text-white md:text-left">{g.title}</h3>
               </div>
-              <ul className="space-y-2 text-on-surface-variant-light dark:text-on-surface-variant-dark">
+              <ul className="space-y-2">
                 {g.lines.map((line) => {
                   const IconComponent = line.icon;
                   return (
                     <li key={line.text} className="flex items-start gap-2 leading-relaxed">
                       <IconComponent
-                        className="mt-0.5 h-4 w-4 shrink-0 text-primary-light dark:text-primary-dark"
+                        className="mt-0.5 h-4 w-4 shrink-0 text-primary-light"
                         aria-hidden="true"
                       />
-                      <span>{line.text}</span>
+                      <span className="text-white/90">{line.text}</span>
                     </li>
                   );
                 })}
