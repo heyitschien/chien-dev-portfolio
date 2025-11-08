@@ -28,6 +28,7 @@ A modern, animated portfolio website showcasing Chien Duong's work as a Front-En
 - **Vite 6.2.0** - Build tool and dev server
 - **Tailwind CSS** (via CDN) - Utility-first styling
 - **Font Awesome 6.4.2** - Icon library
+- **@paper-design/shaders-react** - Liquid gradient shader effects
 
 ### Development Tools
 
