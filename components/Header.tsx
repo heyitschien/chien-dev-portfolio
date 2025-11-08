@@ -89,7 +89,7 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
   return (
     <header
       id="header"
-      className={`sticky top-0 z-50 transition-all duration-500 ${
+      className={`sticky top-0 z-50 transition-all duration-150 ${
         isScrolled
           ? "border-b border-white/20 bg-white/10 backdrop-blur-md"
           : "border-b-0 bg-transparent backdrop-blur-0"
