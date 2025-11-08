@@ -40,7 +40,11 @@ const NavLink: React.FC<{
       href={href}
       onClick={handleNavClick}
       aria-current={active ? "page" : undefined}
-      className={`text-on-surface-variant-light transition-colors hover:text-primary-light dark:text-on-surface-variant-dark dark:hover:text-primary-dark ${active ? "font-semibold text-primary-light dark:text-primary-dark" : ""} ${className}`}
+      className={`transition-colors hover:text-white ${
+        active 
+          ? "font-semibold text-white border-b border-white/50 pb-1" 
+          : "text-white/90"
+      } ${className}`}
     >
       {children}
     </a>
@@ -87,7 +91,7 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
       id="header"
       className={`sticky top-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? "border-b border-gray-200 bg-surface-light/95 backdrop-blur-md dark:border-gray-700 dark:bg-surface-dark/95"
+          ? "border-b border-white/20 bg-white/10 backdrop-blur-md"
           : "border-b-0 bg-transparent backdrop-blur-0"
       }`}
     >
@@ -104,54 +108,54 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
           onClick={handleLogoClick}
           className={`text-xl font-bold transition-colors ${
             isScrolled 
-              ? "text-primary-light dark:text-primary-dark" 
+              ? "text-white" 
               : "text-white"
           }`}
         >
           CD
         </a>
 
-        {/* Desktop Navigation */}
+        {/* Desktop Navigation - Centered */}
         <div className="hidden items-center space-x-6 md:flex">
           <NavLink 
             href="#about" 
             active={activeHash === "#about"}
-            className={!isScrolled ? "text-white/90 hover:text-white" : ""}
+            className={isScrolled ? "text-white/90 hover:text-white" : "text-white/90 hover:text-white"}
           >
             About
           </NavLink>
           <NavLink 
             href="#projects" 
             active={activeHash === "#projects"}
-            className={!isScrolled ? "text-white/90 hover:text-white" : ""}
+            className={isScrolled ? "text-white/90 hover:text-white" : "text-white/90 hover:text-white"}
           >
             Projects
           </NavLink>
           <NavLink 
             href="#skills" 
             active={activeHash === "#skills"}
-            className={!isScrolled ? "text-white/90 hover:text-white" : ""}
+            className={isScrolled ? "text-white/90 hover:text-white" : "text-white/90 hover:text-white"}
           >
             Skills
           </NavLink>
           <NavLink 
             href="#how-i-build-ai" 
             active={activeHash === "#how-i-build-ai"}
-            className={!isScrolled ? "text-white/90 hover:text-white" : ""}
+            className={isScrolled ? "text-white/90 hover:text-white" : "text-white/90 hover:text-white"}
           >
             AI Process
           </NavLink>
           <NavLink 
             href="#film-credits" 
             active={activeHash === "#film-credits"}
-            className={!isScrolled ? "text-white/90 hover:text-white" : ""}
+            className={isScrolled ? "text-white/90 hover:text-white" : "text-white/90 hover:text-white"}
           >
             Film Credits
           </NavLink>
           <NavLink 
             href="#contact" 
             active={activeHash === "#contact"}
-            className={!isScrolled ? "text-white/90 hover:text-white" : ""}
+            className={isScrolled ? "text-white/90 hover:text-white" : "text-white/90 hover:text-white"}
           >
             Contact
           </NavLink>
@@ -164,14 +168,14 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
             aria-label="Toggle Theme"
             className={`rounded-full p-2 transition-colors ${
               isScrolled
-                ? "hover:bg-gray-200 dark:hover:bg-gray-700"
+                ? "hover:bg-white/10 text-white/90"
                 : "hover:bg-white/10 text-white/90"
             }`}
           >
             {theme === "light" ? (
-              <Moon className={`h-5 w-5 ${isScrolled ? "text-on-surface-variant-light" : "text-white/90"}`} />
+              <Moon className="h-5 w-5 text-white/90" />
             ) : (
-              <Sun className={`h-5 w-5 ${isScrolled ? "text-on-surface-variant-dark" : "text-white/90"}`} />
+              <Sun className="h-5 w-5 text-white/90" />
             )}
           </button>
           {/* Hamburger Button */}
@@ -183,14 +187,14 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
               aria-expanded={isMenuOpen.toString()}
               className={`flex h-10 w-10 items-center justify-center rounded-full p-2 transition-colors ${
                 isScrolled
-                  ? "hover:bg-gray-200 dark:hover:bg-gray-700"
+                  ? "hover:bg-white/10"
                   : "hover:bg-white/10"
               }`}
             >
               {isMenuOpen ? (
-                <X className="h-6 w-6 text-on-surface-variant-light dark:text-on-surface-variant-dark" />
+                <X className="h-6 w-6 text-white/90" />
               ) : (
-                <Menu className="h-6 w-6 text-on-surface-variant-light dark:text-on-surface-variant-dark" />
+                <Menu className="h-6 w-6 text-white/90" />
               )}
             </button>
           </div>
@@ -207,7 +211,7 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
             href="#about"
             active={activeHash === "#about"}
             onClick={closeMenu}
-            className="block py-2 text-base font-medium"
+            className="block py-2 text-base font-medium text-white/90"
           >
             About
           </NavLink>
@@ -215,7 +219,7 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
             href="#projects"
             active={activeHash === "#projects"}
             onClick={closeMenu}
-            className="block py-2 text-base font-medium"
+            className="block py-2 text-base font-medium text-white/90"
           >
             Projects
           </NavLink>
@@ -223,7 +227,7 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
             href="#skills"
             active={activeHash === "#skills"}
             onClick={closeMenu}
-            className="block py-2 text-base font-medium"
+            className="block py-2 text-base font-medium text-white/90"
           >
             Skills
           </NavLink>
@@ -231,7 +235,7 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
             href="#how-i-build-ai"
             active={activeHash === "#how-i-build-ai"}
             onClick={closeMenu}
-            className="block py-2 text-base font-medium"
+            className="block py-2 text-base font-medium text-white/90"
           >
             AI Process
           </NavLink>
@@ -239,7 +243,7 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
             href="#film-credits"
             active={activeHash === "#film-credits"}
             onClick={closeMenu}
-            className="block py-2 text-base font-medium"
+            className="block py-2 text-base font-medium text-white/90"
           >
             Film Credits
           </NavLink>
@@ -247,7 +251,7 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
             href="#contact"
             active={activeHash === "#contact"}
             onClick={closeMenu}
-            className="block py-2 text-base font-medium"
+            className="block py-2 text-base font-medium text-white/90"
           >
             Contact
           </NavLink>
