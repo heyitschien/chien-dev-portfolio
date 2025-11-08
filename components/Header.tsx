@@ -184,7 +184,7 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle Menu"
               aria-controls="mobile-menu"
-              aria-expanded={isMenuOpen.toString()}
+              aria-expanded={isMenuOpen}
               className={`flex h-10 w-10 items-center justify-center rounded-full p-2 transition-colors ${
                 isScrolled
                   ? "hover:bg-white/10"
